@@ -1,0 +1,127 @@
+{
+    "name": "Zynga.Core.Platform",
+    "file-filters":
+        [
+            "Assets/Zynga/Core/Platform",
+            "-Assets/Zynga/Core/Platform/Unity",
+            "-Assets/Zynga/Core/Platform/Editor/Tests",
+            "-Assets/Zynga/Core/Platform/DocTemplates/"
+        ],
+    "dependent-packages":
+        [
+            "Zynga.Core.ErrorHandling",
+            "Zynga.Core.ZLogger",
+            "Zynga.Core.Util"
+        ],
+    "options":
+        [
+            {
+                "name": "unity",
+                "_comments": "Unity-specific code for Core.Platform.",
+                "file-filters":
+                    [
+                        "Assets/Plugins/iOS/ZyngaCorePlatform.mm",
+                        "Assets/Plugins/iOS/ZyngaCorePlatform.mm.meta",
+                        "Assets/Plugins/iOS/AppleReachability",
+                        "Assets/Plugins/iOS/AppleReachability.h",
+                        "Assets/Plugins/iOS/AppleReachability.m",
+                        "Assets/Zynga/Core/Platform/Plugins/Android/zynga.core.platform.jar",
+                        "Assets/Zynga/Core/Platform/Plugins/Android/zynga.core.platform.jar.meta",
+                        "Assets/Plugins/WebGL/ZyngaCorePlatform.jslib",
+                        "Assets/Plugins/WebGL/ZyngaCorePlatform.jslib.meta",
+                        "Android/Zynga.Core.Platform",
+                        "Assets/Zynga/Core/Platform/Unity",
+                        "-Assets/Zynga/Core/Platform/Unity/Editor/Tests"
+                    ],
+                "dependent-packages":
+                    [
+                        "PlayServicesResolver"
+                    ]
+            },
+            {
+                "name": "examples",
+                "_comments": "Installs documentation templates and examples code files.",
+                "file-filters":
+                    [
+                        "Assets/Zynga/Core/Platform/DocTemplates/"
+                    ]
+            },
+            {
+                "name": "tests",
+                "_comments": "Tests-specific code for Core.Platform.",
+                "file-filters":
+                    [
+                        "Assets/Zynga/Core/Platform/Editor/Tests"
+                    ],
+                "dependent-packages":
+                    [
+                        "NUnit"
+                    ]
+            },
+            {
+                "name": "unitytests",
+                "_comments": "Unity-tests-specific code for Core.Platform.",
+                "file-filters":
+                    [
+                        "Assets/Zynga/Core/Platform/Unity/Editor/Tests"
+                    ],
+                "dependent-packages":
+                    [
+                        "NUnit"
+                    ],
+                "dependent-options":
+                    [
+                        "unity",
+                        "tests"
+                    ]
+            }
+        ],
+    "metadata":
+        {
+            "documentation-merger-script":
+                [
+                    "Assets/Zynga/Core/Platform/DocTemplates"
+                ]
+        },
+    "build-configs":
+        {
+            "default":
+                {
+                    "min-code-coverage": 90
+                },
+            "dotnet_core":
+                {
+                    "platforms":
+                        [
+                            "console"
+                        ],
+                    "option-sets":
+                        [
+                            {
+                                "name": "testsAndExamples",
+                                "options":  [ "tests" ]
+                            }
+                        ]
+                },
+            "unity":
+                {
+                    "platforms":
+                        [
+                            "ios",
+                            "android",
+                            "webgl"
+                        ],
+                    "min-supported-version": "5.6",
+                    "option-sets":
+                        [
+                            {
+                                "name": "tests",
+                                "options":
+                                    [
+                                        "unitytests"
+                                    ]
+                            }
+                        ]
+                }
+        }
+}

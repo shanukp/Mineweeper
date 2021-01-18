@@ -1,0 +1,781 @@
+{
+    "name": "Zynga.SocialEngine.Core",
+    "file-filters":
+        [
+            "Assets/Zynga/SocialEngine/Core",
+            "-Assets/Zynga/SocialEngine/Core/Analytics",
+            "-Assets/Zynga/SocialEngine/Core/ZTrack",
+            "-Assets/Zynga/SocialEngine/Core/UserAcquisition",
+            "-Assets/Zynga/SocialEngine/Core/Authentication",
+            "-Assets/Zynga/SocialEngine/Core/AuthenticationFacebook",
+            "-Assets/Zynga/SocialEngine/Core/AuthenticationGooglePlayGames",
+            "-Assets/Zynga/SocialEngine/Core/AuthenticationAppleGameCenter",
+            "-Assets/Zynga/SocialEngine/Core/AuthenticationSignInWithApple",
+            "-Assets/Zynga/SocialEngine/Core/Log",
+            "-Assets/Zynga/SocialEngine/Core/Login",
+            "-Assets/Zynga/SocialEngine/Core/Graph",
+            "-Assets/Zynga/SocialEngine/Core/Identity",
+            "-Assets/Zynga/SocialEngine/Core/Chat",
+            "-Assets/Zynga/SocialEngine/Core/Name",
+            "-Assets/Zynga/SocialEngine/Core/Profile",
+            "-Assets/Zynga/SocialEngine/Core/Payments",
+            "-Assets/Zynga/SocialEngine/Core/Zoom",
+            "-Assets/Zynga/SocialEngine/Core/Track",
+            "-Assets/Zynga/SocialEngine/Core/UnityAds",
+            "-Assets/Zynga/SocialEngine/Core/Leaderboard",
+            "-Assets/Zynga/SocialEngine/Core/Conversation",
+            "-Assets/Zynga/SocialEngine/Core/Storage",
+            "-Assets/Zynga/SocialEngine/Core/Guilds",
+            "-Assets/Zynga/SocialEngine/Core/Messaging",
+            "-Assets/Zynga/SocialEngine/Core/Notifications",
+            "-Assets/Zynga/SocialEngine/Core/Media",
+            "-Assets/Zynga/SocialEngine/Core/CsReport",
+            "-Assets/Zynga/SocialEngine/Core/Eos",
+            "-Assets/Zynga/SocialEngine/Core/ProfanityFilter",
+            "-Assets/Zynga/SocialEngine/Core/Finder",
+            "-Assets/Zynga/SocialEngine/Core/Compliance",
+            "-Assets/Zynga/SocialEngine/Editor/Tests"
+        ],
+    "dependent-packages": 
+        [
+            "Zynga.Core.ZLogger",
+            "Zynga.Core.Util",
+            "Zynga.Core.Tasks",
+            "Zynga.Core.Net",
+            "Zynga.Zdk.Services.Common",
+            "Zynga.Zdk.Services.Messaging",
+            "Zynga.Core.ErrorHandling"
+        ],
+    "options": 
+        [
+            {
+                "name": "unity",
+                "_comments": "Configures SocialEngine to be used in Unity game engine context.",
+                "dependent-packages": [
+                    "Zynga.Core.UnityUtil"
+                ],
+                "unity-defines": [
+                    "ZYNGA_SOCIALENGINE_UNITY"
+                ]
+            },
+            {
+                "name": "examples",
+                "_comments": "Installs documentation templates and examples code files.",
+                "file-filters":
+                [
+                    "Assets/Zynga/SocialEngine/DocTemplates",
+                    "Assets/Zynga/SocialEngine/Documentation"
+                ],
+                "unity-defines": [
+                    "ZYNGA_SOCIALENGINE_EXAMPLES"
+                ]
+            },
+            {
+                "name": "unity_ads",
+                "_comments": "Installs options for watch to earn unity ads feature integrations",
+                "file-filters":
+                [
+                    "Assets/Zynga/SocialEngine/Core/UnityAds",
+                    "Assets/Zynga/SocialEngine/Editor/Tests/UnityAdsTest.cs"
+                ],
+                "dependent-packages": [
+                    "Zynga.Ads.UnityAdsWrapper"
+                ],
+                "dependent-options": [
+                    "unity",
+                    "track"
+                ],
+                "unity-defines": [
+                    "ZYNGA_SOCIALENGINE_UNITYADS"
+                ]
+            },
+            {
+                "name": "track",
+                "_comments": "Installs options for track feature integrations",
+                "file-filters":
+                [
+                    "Assets/Zynga/SocialEngine/Core/Track",
+                    "Assets/Zynga/SocialEngine/Editor/Tests/TrackTest.cs"
+                ],
+                "dependent-packages": [
+                    "Zynga.Zdk.Services.Track"
+                ],
+                "unity-defines": [
+                    "ZYNGA_SOCIALENGINE_TRACK"
+                ]
+            },
+            {
+                "name": "payments",
+                "_comments": "Installs options for payments feature integrations",
+                "file-filters":
+                [
+                    "Assets/Zynga/SocialEngine/Core/Payments",
+                    "Assets/Zynga/SocialEngine/Editor/Tests/PaymentsTest.cs"
+                ],
+                "dependent-packages": [
+                    "Zynga.Payments.IAP"
+                ],
+                "dependent-options": [
+                    "unity",
+                    "track",
+                    "log"
+                ],
+                "unity-defines": [
+                    "ZYNGA_SOCIALENGINE_PAYMENTS"
+                ]
+            },
+            {
+                "name": "zoom",
+                "_comments": "Installs options for Zoom feature integrations",
+                "file-filters":
+                [
+                    "Assets/Zynga/SocialEngine/Core/Zoom",
+                    "Assets/Zynga/SocialEngine/Editor/Tests/ZoomTest.cs"
+                ],
+                "dependent-packages":
+                [
+                    "Zynga.Zdk.Services.Zoom"
+                ],
+                "unity-defines": [
+                    "ZYNGA_SOCIALENGINE_ZOOM"
+                ]
+            },
+            {
+                "name": "name",
+                "_comments": "Installs options for name feature integrations",
+                "file-filters":
+                [
+                    "Assets/Zynga/SocialEngine/Core/Name",
+                    "Assets/Zynga/SocialEngine/Editor/Tests/NameTest.cs"
+                ],
+                "dependent-packages": [
+                    "Zynga.Zdk.Services.Name"
+                ],
+                "unity-defines": [
+                    "ZYNGA_SOCIALENGINE_NAME"
+                ]
+            },
+            {
+                "name": "profile",
+                "_comments": "Installs options for profile feature integrations",
+                "file-filters":
+                [
+                    "Assets/Zynga/SocialEngine/Core/Profile",
+                    "Assets/Zynga/SocialEngine/Editor/Tests/ProfileTest.cs"
+                ],
+                "dependent-packages": [
+                    "Zynga.Zdk.Services.Profile"
+                ],
+                "unity-defines": [
+                    "ZYNGA_SOCIALENGINE_PROFILE"
+                ]
+            },
+            {
+                "name": "chat",
+                "_comments": "Installs options for chat feature integrations",
+                "file-filters":
+                [
+                    "Assets/Zynga/SocialEngine/Core/Chat",
+                    "Assets/Zynga/SocialEngine/Editor/Tests/ChatTest.cs"
+                ],
+                "dependent-packages": [
+                    "Zynga.Messaging.Chat"
+                ],
+                "dependent-options": [
+                    "conversation",
+                    "zoom",
+                    "profile"
+                ],
+                "unity-defines": [
+                    "ZYNGA_SOCIALENGINE_CHAT"
+                ]
+            },
+            {
+                "name": "graph",
+                "_comments": "Installs options for graph feature integrations",
+                "file-filters":
+                [
+                    "Assets/Zynga/SocialEngine/Core/Graph",
+                    "Assets/Zynga/SocialEngine/Editor/Tests/GraphTest.cs"
+                ],
+                "dependent-packages": [
+                    {
+                        "name": "Zynga.Zdk.Services.Graph",
+                        "use-options":
+                        [
+                            "use-zoom"
+                        ]
+                    }
+                ],
+                "dependent-options": [
+                    "zoom"
+                ],
+                "unity-defines": [
+                    "ZYNGA_SOCIALENGINE_GRAPH"
+                ]
+            },
+            {
+                "name": "identity",
+                "_comments": "Installs options for Zynga Identity Service (ZIS)",
+                "file-filters":
+                [
+                    "Assets/Zynga/SocialEngine/Core/Identity",
+                    "Assets/Zynga/SocialEngine/Editor/Tests/IdentityTest.cs"
+                ],
+                "dependent-packages": [
+                    "Zynga.Zdk.Services.Identity"
+                ],
+                "unity-defines": [
+                    "ZYNGA_SOCIALENGINE_IDENTITY"
+                ]
+            },
+            {
+                "name": "authentication",
+                "_comments": "Installs options for Zynga Identity Service (ZIS) Authentication",
+                "file-filters":
+                [
+                    "Assets/Zynga/SocialEngine/Core/Authentication",
+                    "Assets/Zynga/SocialEngine/Editor/Tests/AuthenticationTest.cs"
+                ],
+                "dependent-packages": [
+                    "Zynga.Authentication"
+                ],
+                "dependent-options": [
+                    "track",
+                    "identity",
+                    "messaging"
+                ],
+                "unity-defines": [
+                    "ZYNGA_SOCIALENGINE_AUTHENTICATION"
+                ]
+            },
+            {
+                "name": "authentication_facebook",
+                "_comments": "Installs options for ZIS Authentication Securing via Facebook",
+                "file-filters":
+                [
+                    "Assets/Zynga/SocialEngine/Core/AuthenticationFacebook",
+                    "Assets/Zynga/SocialEngine/Editor/Tests/AuthenticationFacebookTest.cs"
+                ],
+                "dependent-packages": [
+                    "Zynga.Authentication.Facebook"
+                ],
+                "dependent-options": [
+                    "authentication"
+                ],
+                "unity-defines": [
+                    "ZYNGA_SOCIALENGINE_AUTHENTICATION_FACEBOOK"
+                ]
+            },
+            {
+                "name": "authentication_googleplaygames",
+                "_comments": "Installs options for ZIS Authentication Securing via Google Play Games",
+                "file-filters":
+                [
+                    "Assets/Zynga/SocialEngine/Core/AuthenticationGooglePlayGames",
+                    "Assets/Zynga/SocialEngine/Editor/Tests/AuthenticationGooglePlayGamesTest.cs"
+                ],
+                "dependent-packages": [
+                    "Zynga.Authentication.GooglePlayGames"
+                ],
+                "dependent-options": [
+                    "authentication"
+                ],
+                "unity-defines": [
+                    "ZYNGA_SOCIALENGINE_AUTHENTICATION_GOOGLEPLAYGAMES",
+                    "NO_GPGS"
+                ]
+            },
+            {
+                "name": "authentication_applegamecenter",
+                "_comments": "Installs options for ZIS Authentication Securing via Apple Game Center",
+                "file-filters":
+                [
+                    "Assets/Zynga/SocialEngine/Core/AuthenticationAppleGameCenter",
+                    "Assets/Zynga/SocialEngine/Editor/Tests/AuthenticationAppleGameCenterTest.cs"
+                ],
+                "dependent-packages": [
+                    "Zynga.Authentication.AppleGameCenter"
+                ],
+                "dependent-options": [
+                    "authentication"
+                ],
+                "unity-defines": [
+                    "ZYNGA_SOCIALENGINE_AUTHENTICATION_APPLEGAMECENTER"
+                ]
+            },
+            {
+                "name": "authentication_signinwithapple",
+                "_comments": "Installs options for ZIS Authentication Securing via Apple SignIn",
+                "file-filters":
+                [
+                    "Assets/Zynga/SocialEngine/Core/AuthenticationSignInWithApple",
+                    "Assets/Zynga/SocialEngine/Editor/Tests/AuthenticationSignInWithAppleTest.cs"
+                ],
+                "dependent-packages": [
+                    "Zynga.Authentication.SignInWithApple"
+                ],
+                "dependent-options": [
+                    "authentication"
+                ],
+                "unity-defines": [
+                    "ZYNGA_SOCIALENGINE_AUTHENTICATION_SIGNINWITHAPPLE"
+                ]
+            },
+            {
+                "name": "analytics",
+                "_comments": "Installs options for Analytics",
+                "file-filters":
+                [
+                    "Assets/Zynga/SocialEngine/Core/Analytics",
+                    "Assets/Zynga/SocialEngine/Editor/Tests/AnalyticsTest.cs"
+                ],
+                "dependent-packages": [
+                    "Zynga.Metrics.Analytics"
+                ],
+                "dependent-options": [
+                    "track"
+                ],
+                "unity-defines": [
+                    "ZYNGA_SOCIALENGINE_ANALYTICS"
+                ]
+            },
+            {
+                "name": "ztrack",
+                "_comments": "Installs options for ZTrack",
+                "file-filters":
+                [
+                    "Assets/Zynga/SocialEngine/Core/ZTrack",
+                    "Assets/Zynga/SocialEngine/Editor/Tests/ZTrackTest.cs"
+                ],
+                "dependent-packages": [
+                    "Zynga.Metrics.ZTrack"
+                ],
+                "dependent-options": [
+                    "track"
+                ],
+                "unity-defines": [
+                    "ZYNGA_SOCIALENGINE_ZTRACK"
+                ]
+            },
+            {
+                "name": "user_acquisition",
+                "_comments": "Installs options for User Acquisition",
+                "file-filters":
+                [
+                    "Assets/Zynga/SocialEngine/Core/UserAcquisition",
+                    "Assets/Zynga/SocialEngine/Editor/Tests/UserAcquisitionTest.cs"
+                ],
+                "dependent-packages": [
+                    {
+                        "name": "Zynga.Metrics.UserAcquisition",
+                        "use-options":
+                        [
+                            "adjust",
+                            "user_acquisition_track"
+                        ]
+                    }
+                ],
+                "dependent-options": [
+                    "track"
+                ],
+                "unity-defines": [
+                    "ZYNGA_SOCIALENGINE_USERACQUISITION"
+                ]
+            },
+            {
+                "name": "log",
+                "_comments": "Installs option for Log",
+                "file-filters":
+                [
+                    "Assets/Zynga/SocialEngine/Core/Log",
+                    "Assets/Zynga/SocialEngine/Editor/Tests/LogTest.cs"
+                ],
+                "dependent-packages": [
+                    "Zynga.Zdk.Services.Log"
+                ],
+                "unity-defines": [
+                    "ZYNGA_SOCIALENGINE_LOG"
+                ]
+            },
+            {
+                "name": "login",
+                "_comments": "Installs option for Login",
+                "file-filters":
+                [
+                    "Assets/Zynga/SocialEngine/Core/Login",
+                    "Assets/Zynga/SocialEngine/Editor/Tests/LoginTest.cs"
+                ],
+                "dependent-packages": [
+                    "Zynga.Zdk.Services.Login"
+                ],
+                "dependent-options": [
+                    "log"
+                ],
+                "unity-defines": [
+                    "ZYNGA_SOCIALENGINE_LOGIN"
+                ]
+            },
+            {
+                "name": "socialengine_tests",
+                "_comments": "Tests-specific code for the SocialEngine package.",
+                "file-filters":
+                    [
+                        "Assets/Zynga/SocialEngine/Editor/Tests/SocialEngineAppTest.cs",                
+                        "Assets/Zynga/SocialEngine/Editor/Tests/TestBase.cs",                
+                        "Assets/Zynga/SocialEngine/Editor/Tests/MockLogAppender.cs" 
+                    ],
+                "dependent-packages":
+                    [
+                        "NUnit",
+                        "NSubstitute",
+                        "UnityTest",
+                        "Zynga.Tools.SharpCover",
+                        "Palmmedia.ReportGenerator",
+                        "Zynga.Tools.Unity.CodeCoverage"
+                    ],
+                "dependent-options":
+                    [
+                    ],
+                "unity-defines": [
+                    "ZYNGA_SOCIALENGINE_TESTS"
+                ]
+            },
+            {
+                "name": "leaderboard",
+                "_comments": "Installs options for leaderboard feature integrations",
+                "file-filters":
+                [
+                    "Assets/Zynga/SocialEngine/Core/Leaderboard",
+                    "Assets/Zynga/SocialEngine/Editor/Tests/LeaderboardTest.cs"
+                ],
+                "dependent-packages": [
+                    "Zynga.Zdk.Services.LeaderboardV2"
+                ],
+                "unity-defines": [
+                    "ZYNGA_SOCIALENGINE_LEADERBOARD"
+                ]
+            },
+            {
+                "name": "conversation",
+                "_comments": "Installs options for leaderboard feature integrations",
+                "file-filters":
+                [
+                    "Assets/Zynga/SocialEngine/Core/Conversation",
+                    "Assets/Zynga/SocialEngine/Editor/Tests/ConversationTest.cs"
+                ],
+                "dependent-packages": [
+                    {
+                        "name": "Zynga.Zdk.Services.Conversation",
+                        "use-options":
+                        [
+                            "use-zoom"
+                        ]
+                    }
+                ],
+                "dependent-options": [
+                    "zoom"
+                ],
+                "unity-defines": [
+                    "ZYNGA_SOCIALENGINE_CONVERSATION"
+                ]
+            },
+            {
+                "name": "storage",
+                "_comments": "Installs options for storage feature integrations",
+                "file-filters":
+                [
+                    "Assets/Zynga/SocialEngine/Core/Storage",
+                    "Assets/Zynga/SocialEngine/Editor/Tests/StorageTest.cs"
+                ],
+                "dependent-packages": [
+                    "Zynga.Zdk.Services.Storage"
+                ],
+                "unity-defines": [
+                    "ZYNGA_SOCIALENGINE_STORAGE"
+                ]
+            },
+            {
+                "name": "guilds",
+                "_comments": "Installs options for guilds feature integrations",
+                "file-filters":
+                [
+                    "Assets/Zynga/SocialEngine/Core/Guilds",
+                    "Assets/Zynga/SocialEngine/Editor/Tests/GuildsTest.cs"
+                ],
+                "dependent-packages":
+                [
+                    {
+                        "name": "Zynga.Zdk.Services.Guilds",
+                        "use-options":
+                        [
+                            "use-zoom"
+                        ]
+                    }
+                ],
+                "dependent-options": [
+                    "zoom"
+                ],
+                "unity-defines": [
+                    "ZYNGA_SOCIALENGINE_GUILDS"
+                ]
+            },
+            {
+                "name": "messaging",
+                "_comments": "Installs options for messaging feature integrations",
+                "file-filters":
+                [
+                    "Assets/Zynga/SocialEngine/Core/Messaging",
+                    "Assets/Zynga/SocialEngine/Editor/Tests/MessagingTest.cs"
+                ],
+                "dependent-packages":
+                [
+                    "Zynga.Zdk.Services.Messaging"
+                ],
+                "unity-defines": [
+                    "ZYNGA_SOCIALENGINE_MESSAGING"
+                ]
+            },
+            {
+                "name": "notifications",
+                "_comments": "Installs options for notifications feature integrations",
+                "file-filters":
+                [
+                    "Assets/Zynga/SocialEngine/Core/Notifications",
+                    "Assets/Zynga/SocialEngine/Editor/Tests/NotificationsTest.cs"
+                ],
+                "dependent-packages": [
+                    "Zynga.Messaging.Notifications"
+                ],
+                "dependent-options": [
+                    "messaging",
+                    "analytics"
+                ],
+                "unity-defines": [
+                    "ZYNGA_SOCIALENGINE_NOTIFICATIONS"
+                ]
+            },
+            {
+                "name": "media",
+                "_comments": "Installs options for media feature integrations",
+                "file-filters":
+                [
+                    "Assets/Zynga/SocialEngine/Core/Media",
+                    "Assets/Zynga/SocialEngine/Editor/Tests/MediaTest.cs"
+                ],
+                "dependent-packages":
+                [
+                    "Zynga.Zdk.Services.Media"
+                ],
+                "unity-defines": [
+                    "ZYNGA_SOCIALENGINE_MEDIA"
+                ]
+            },
+            {
+                "name": "csreport",
+                "_comments": "Installs options for CsReport feature integrations",
+                "file-filters":
+                [
+                    "Assets/Zynga/SocialEngine/Core/CsReport",
+                    "Assets/Zynga/SocialEngine/Editor/Tests/CsReportTest.cs"
+                ],
+                "dependent-packages":
+                [
+                    "Zynga.Zdk.Services.CsReport"
+                ],
+                "unity-defines": [
+                    "ZYNGA_SOCIALENGINE_CSREPORT"
+                ]
+            },
+            {
+                "name": "eos",
+                "_comments": "Installs options for EOS feature integrations",
+                "file-filters":
+                [
+                    "Assets/Zynga/SocialEngine/Core/Eos",
+                    "Assets/Zynga/SocialEngine/Editor/Tests/EosTest.cs"
+                ],
+                "dependent-packages":
+                [
+                    "Zynga.Zdk.Services.EOS"
+                ],
+                "unity-defines": [
+                    "ZYNGA_SOCIALENGINE_EOS"
+                ]
+            },
+            {
+                "name": "profanityfilter",
+                "_comments": "Installs options for Profanity Filter feature integrations",
+                "file-filters":
+                [
+                    "Assets/Zynga/SocialEngine/Core/ProfanityFilter",
+                    "Assets/Zynga/SocialEngine/Editor/Tests/ProfanityFilterTest.cs"
+                ],
+                "dependent-packages":
+                [
+                    "Zynga.Zdk.Services.ProfanityFilter"
+                ],
+                "unity-defines": [
+                    "ZYNGA_SOCIALENGINE_PROFANITYFILTER"
+                ]
+            },
+            {
+                "name": "finder",
+                "_comments": "Installs options for Finder feature integrations",
+                "file-filters":
+                [
+                    "Assets/Zynga/SocialEngine/Core/Finder",
+                    "Assets/Zynga/SocialEngine/Editor/Tests/FinderTest.cs"
+                ],
+                "dependent-packages":
+                [
+                    "Zynga.Zdk.Services.Finder"
+                ],
+                "unity-defines": [
+                    "ZYNGA_SOCIALENGINE_FINDER"
+                ]
+            },
+            {
+                "name": "compliance",
+                "_comments": "Installs options for Compliance feature integrations",
+                "file-filters":
+                [
+                    "Assets/Zynga/SocialEngine/Core/Compliance",
+                    "Assets/Zynga/SocialEngine/Editor/Tests/ComplianceTest.cs"
+                ],
+                "dependent-packages":
+                [
+                    "Zynga.Zdk.Services.Compliance"
+                ],
+                "unity-defines": [
+                    "ZYNGA_SOCIALENGINE_COMPLIANCE"
+                ]
+            }
+        ],
+    "build-configs": 
+        {
+            "default": 
+            {
+                "min-code-coverage": 0,
+                "required-defines": [ "ASSERTIONS_ENABLED" ]
+            },
+            "unity": 
+            {
+                "platforms": [ "ios", "android", "webgl" ],
+                "min-supported-version": "5.0",
+                "option-sets": 
+                [
+                    {
+                        "name": "none"
+                    },
+                    {
+                        "name": "unitTests",
+                        "options":  [ "socialengine_tests" ]
+                    },
+                    {
+                        "name": "identity",
+                        "options":  [ "identity" ]
+                    },
+                    {
+                        "name": "authentication",
+                        "options":  [ "authentication" ]
+                    },
+                    {
+                        "name": "authentication_googleplaygames",
+                        "options":  [ "authentication_googleplaygames", "jenkins" ]
+                    },
+                    {
+                        "name": "analytics",
+                        "options":  [ "analytics" ]
+                    },
+                    {
+                        "name": "ztrack",
+                        "options":  [ "ztrack" ]
+                    },
+                    {
+                        "name": "user_acquisition",
+                        "options":  [ "user_acquisition" ]
+                    },
+                    {
+                        "name": "log",
+                        "options":  [ "log" ]
+                    },
+                    {
+                        "name": "graph",
+                        "options":  [ "graph" ]
+                    },
+                    {
+                        "name": "profile",
+                        "options":  [ "profile" ]
+                    },
+                    {
+                        "name": "zoom",
+                        "options":  [ "zoom" ]
+                    },
+                    {
+                        "name": "payments",
+                        "options":  [ "payments" ]
+                    },
+                    {
+                        "name": "track",
+                        "options":  [ "track" ]
+                    },
+                    {
+                        "name": "leaderboard",
+                        "options":  [ "leaderboard" ]
+                    },
+                    {
+                        "name": "conversation",
+                        "options":  [ "conversation" ]
+                    },
+                    {
+                        "name": "storage",
+                        "options":  [ "storage" ]
+                    },
+                    {
+                        "name": "guilds",
+                        "options":  [ "guilds" ]
+                    },
+                    {
+                        "name": "messaging",
+                        "options":  [ "messaging" ]
+                    },
+                    {
+                        "name": "notifications",
+                        "options":  [ "notifications", "jenkins" ]
+                    },
+                    {
+                        "name": "media",
+                        "options":  [ "media" ]
+                    },
+                    {
+                        "name": "csreport",
+                        "options":  [ "csreport" ]
+                    },
+                    {
+                        "name": "eos",
+                        "options":  [ "eos" ]
+                    },
+                    {
+                        "name": "profanityfilter",
+                        "options":  [ "profanityfilter" ]
+                    },
+                    {
+                        "name": "finder",
+                        "options":  [ "finder" ]
+                    },
+                    {
+                        "name": "compliance",
+                        "options":  [ "compliance" ]
+                    }
+                ]
+            }
+        },
+    "metadata":
+        {
+            "documentation-merger-script":
+                [
+                    "Assets/Zynga/SocialEngine/DocTemplates/"
+                ]
+        }
+}

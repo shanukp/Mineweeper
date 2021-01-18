@@ -1,0 +1,17 @@
+{
+    "package": "Zynga.Messaging.Notifications",
+    "git-url": "git@github-ca.corp.zynga.com:UnityTech/Zynga.Messaging.Notifications.git",
+    "installed-branch": "master",
+    "version": "branch:master",
+    "commit": "0ea51c3e6fe9582b858ff6dc8f05e530ed8b9188",
+    "matched-tag": "2.0.1",
+    "install-root": "",
+    "installed-options":
+        [
+            "unity",
+            "websocket",
+            "gameSpecificFiles",
+            "source",
+            "dotnet45"
+        ]
+}

@@ -1,0 +1,98 @@
+{
+    "name": "Zynga.Core.UnityUtil",
+    
+    "file-filters":
+        [
+            "Assets/Zynga/Core/UnityUtil",
+            "-Assets/Zynga/Core/UnityUtil/Editor/Tests",
+            "-Assets/Zynga/Core/UnityUtil/DocTemplates/",
+
+            "Android/Zynga.Core.UnityUtil",
+            "Assets/Plugins/Android/zynga.core.unityutil.jar",
+            "-Android/Zynga.Core.UnityUtil/gen",
+            "-Android/Zynga.Core.UnityUtil/bin",
+            "-Android/Zynga.Core.UnityUtil/local.properties",
+            "-Android/Zynga.Core.UnityUtil/proguard-project.txt",
+            "-Android/Zynga.Core.UnityUtil/build.xml",
+            "-Android/Zynga.Core.UnityUtil/project.properties",
+
+            "Assets/Plugins/iOS/ZyngaCoreUnityUtil.mm",
+            "Assets/Plugins/iOS/ZyngaCoreUnityUtil.mm.meta",
+            "Assets/Plugins/iOS/ZyngaCoreUnityUtil.h",
+
+            "Assets/Plugins/iOS/NSData+Base64.h",
+            "Assets/Plugins/iOS/NSData+Base64.m",
+            "Assets/Plugins/iOS/NSData+Base64.m.meta"
+        ],
+
+    "dependent-packages":
+        [
+            "Zynga.Core.Util",
+            "Zynga.Core.JsonUtil",
+            "Zynga.Core.ZLogger",
+            "Zynga.Core.ErrorHandling",
+            "Zynga.Core.Platform"
+        ],
+    "options":
+        [
+        	{
+                "name": "examples",
+                "_comments": "Installs documentation templates and examples code files.",
+                "file-filters":
+                [
+                    "Assets/Zynga/Core/UnityUtil/DocTemplates"
+                ],
+                "dependent-packages": []
+            },
+            {
+                "name": "tests",
+                "_comments": "Tests-specific code for UnityUtil.",
+                "file-filters":
+                    [
+                        "Assets/Zynga/Core/UnityUtil/Editor/Tests"
+                    ],
+                "dependent-packages":
+                    [
+                        "NUnit"
+                    ]
+            }
+        ],
+    "build-configs": 
+    {
+        "default": 
+        {
+            "min-code-coverage": 95,
+            "define-sets": 
+            [
+                {
+                    "name": "none",
+                    "defines": [ ]
+                },
+                {
+                    "name": "enableDeviceInfoOverrides",
+                    "defines": [ "DEVICEINFO_ENABLE_OVERRIDES" ]
+                }
+            ],
+            "required-defines": [ "ASSERTIONS_ENABLED" ]
+        },
+        "unity": 
+        {
+            "platforms": [ "ios", "android", "webgl" ],
+            "min-supported-version": "5.6",
+            "option-sets": 
+            [
+                {
+                    "name": "testsAndExamples",
+                    "options":  [ "tests", "examples" ]
+                }
+            ]
+         }
+    },
+    "metadata":
+        {
+            "documentation-merger-script":
+                [
+                    "Assets/Zynga/Core/UnityUtil/DocTemplates"
+                ]
+        }
+}

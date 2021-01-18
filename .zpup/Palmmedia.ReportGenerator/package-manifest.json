@@ -1,0 +1,51 @@
+{
+    "name": "Palmmedia.ReportGenerator",
+    "_comments": "Generates html reports from code coverage captures",
+    "file-filters":
+        [
+            "Tools/Palmmedia/ReportGenerator/Tools",
+            "README.md",
+            "Readme.txt",
+            "LICENSE.txt"
+        ],
+    "path-mappings":
+        {
+            "README.md": "Tools/Palmmedia/ReportGenerator/README.md",
+            "Readme.txt": "Tools/Palmmedia/ReportGenerator/Readme.txt",
+            "LICENSE.txt": "Tools/Palmmedia/ReportGenerator/LICENSE.txt"
+        },
+    "build-configs":
+        {
+            "default":
+                {
+                    "min-code-coverage": 0,
+                    "required-defines":
+                        [
+                            "ASSERTIONS_ENABLED"
+                        ]
+                },
+            "unity":
+                {
+                    "platforms":
+                        [
+                            "ios",
+                            "android",
+                            "webgl"
+                        ],
+                    "min-supported-version": "5.6",
+                    "option-sets":
+                        [
+                            {
+                                "name": "none"
+                            }
+                        ]
+                }
+        },
+    "metadata":
+        {
+            "documentation-merger-script":
+                [
+                    "Assets/Palmmedia/ReportGenerator/DocTemplates"
+                ]
+        }
+}

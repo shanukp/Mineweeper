@@ -1,0 +1,17 @@
+{
+    "package": "Zynga.Core.ZLogger",
+    "git-url": "git@github-ca.corp.zynga.com:UnityTech/Zynga.Core.ZLogger.git",
+    "installed-branch": "master",
+    "version": "branch:master",
+    "commit": "767c1f7bba27f870e3a9562ae0ea92f8eafec2fb",
+    "matched-tag": "2.0.0",
+    "install-root": "",
+    "installed-options":
+        [
+            "unity",
+            "websocket",
+            "gameSpecificFiles",
+            "source",
+            "dotnet45"
+        ]
+}

@@ -1,0 +1,17 @@
+{
+    "package": "FacebookUnitySDK",
+    "git-url": "git@github-ca.corp.zynga.com:UnityTech/FacebookUnitySDK.git",
+    "installed-branch": "master",
+    "version": "branch:master",
+    "commit": "aa5d70e8caf25654ab9b8de093fb587810f15016",
+    "matched-tag": "7.15.1.2+<Changes>",
+    "install-root": "",
+    "installed-options":
+        [
+            "unity",
+            "websocket",
+            "gameSpecificFiles",
+            "source",
+            "dotnet45"
+        ]
+}

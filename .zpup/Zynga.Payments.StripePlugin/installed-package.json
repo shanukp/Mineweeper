@@ -1,0 +1,17 @@
+{
+    "package": "Zynga.Payments.StripePlugin",
+    "git-url": "git@github-ca.corp.zynga.com:UnityTech/Zynga.Payments.StripePlugin.git",
+    "installed-branch": "master",
+    "version": "branch:master",
+    "commit": "d4fcbb100b798f92154986c5e030ddcc0fe5e68a",
+    "matched-tag": "1.0.4",
+    "install-root": "",
+    "installed-options":
+        [
+            "unity",
+            "websocket",
+            "gameSpecificFiles",
+            "source",
+            "dotnet45"
+        ]
+}

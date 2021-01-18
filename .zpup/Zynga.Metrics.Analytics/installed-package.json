@@ -1,0 +1,17 @@
+{
+    "package": "Zynga.Metrics.Analytics",
+    "git-url": "git@github-ca.corp.zynga.com:UnityTech/Zynga.Metrics.Analytics.git",
+    "installed-branch": "master",
+    "version": "branch:master",
+    "commit": "3ced0e2efbf2b42c0115f0e396e01b1f58fdf9b9",
+    "matched-tag": "2.0.0",
+    "install-root": "",
+    "installed-options":
+        [
+            "unity",
+            "websocket",
+            "gameSpecificFiles",
+            "source",
+            "dotnet45"
+        ]
+}

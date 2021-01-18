@@ -1,0 +1,95 @@
+{
+    "name": "Zynga.Zdk.Services.Messaging",
+
+    "file-filters":
+        [
+            "Assets/Zynga/Zdk/Services/Messaging",
+            "-Assets/Zynga/Zdk/Services/Messaging/Editor/Tests/",
+            "-Assets/Zynga/Zdk/Services/Messaging/DocTemplates/"
+        ],
+
+    "dependent-packages":
+        [
+            "Zynga.Core.Util",
+            "Zynga.Core.JsonUtil",
+            "Zynga.Core.ZLogger",
+            "Zynga.Core.Net",
+            "Zynga.Core.Tasks",
+            "Zynga.Core.ErrorHandling",
+            "Zynga.Core.Platform",
+			"Zynga.Zdk.Services.Common"
+        ],
+    "options":
+        [
+            {
+                "name": "tests",
+                "_comments": "Tests-specific code for the Messaging Service.",
+                "file-filters":
+                    [
+                        "Assets/Zynga/Zdk/Services/Messaging/Editor/Tests/"
+                    ],
+                "dependent-packages":
+                    [
+                        "NUnit",
+                        "NSubstitute",
+                        {
+                            "name": "Zynga.Zdk.Services.Common",
+                            "use-options":
+                            [
+                                "tests"
+                            ]
+                        },
+                        {
+                            "name": "Zynga.Core.Util",
+                            "use-options":
+                                [
+                                    "test-utils"
+                                ]
+                        }
+                    ]
+            },
+            {
+                "name": "examples",
+                "_comments": "Installs documentation template and example code files.",
+                "file-filters":
+                    [
+                        "Assets/Zynga/Zdk/Services/Messaging/DocTemplates/"
+                    ]
+            }
+        ],
+    "build-configs":
+        {
+            "default":
+                {
+                    "min-code-coverage": 60,
+                    "required-defines": [ "ASSERTIONS_ENABLED" ]
+                },
+            "dotnet_core":
+                {
+                    "platforms": [ "console" ],
+                    "option-sets":
+                        [
+                            {
+                                "name": "tests",
+                                "options":  [ "tests" ]
+                            }
+                        ]
+                },
+            "unity":
+                {
+                    "platforms": [ "ios", "android", "webgl" ],
+                    "min-supported-version": "5.6",
+                    "option-sets":
+                        [
+                            {
+                                "name": "tests",
+                                "options":  [ "tests" ]
+                            }
+                        ]
+                }
+        },
+    "metadata":
+        {
+            "documentation-merger-script": "Assets/Zynga/Zdk/Services/Messaging/DocTemplates"
+        }
+}

@@ -1,0 +1,17 @@
+{
+    "package": "UnityTest",
+    "git-url": "git@github-ca.corp.zynga.com:UnityTech/UnityTest.git",
+    "installed-branch": "master",
+    "version": "branch:master",
+    "commit": "ade23124bafc2dd96e2a7de119923709467b4a59",
+    "matched-tag": "1.5.9+<Changes>",
+    "install-root": "",
+    "installed-options":
+        [
+            "unity",
+            "websocket",
+            "gameSpecificFiles",
+            "source",
+            "dotnet45"
+        ]
+}

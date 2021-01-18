@@ -1,0 +1,123 @@
+{
+    "name": "Zynga.Core.ZLogger",
+    "file-filters":
+        [
+            "Assets/Zynga/Core/ZLogger",
+            "-Assets/Zynga/Core/ZLogger/Unity",
+            "-Assets/Zynga/Core/ZLogger/Editor/Tests",
+            "-Assets/Zynga/Core/ZLogger/DocTemplates/",
+            "-Assets/Zynga/Core/ZLogger/IntegrationTests"
+        ],
+    "dependent-packages":
+        [
+
+        ],
+    "options":
+        [
+            {
+                "name": "unity",
+                "_comments": "Unity-specific code for ZLogger.  Will replace ConsoleAppender.cs with a Unity version.",
+                "file-filters":
+                    [
+                        "Assets/Zynga/Core/ZLogger/Unity",
+                        "Assets/Plugins/iOS/ZLogger.mm",
+                        "Assets/Plugins/iOS/ZLogger.mm.meta",
+                        "-Assets/Zynga/Core/ZLogger/Unity/Editor/Tests"
+                    ]
+            },
+            {
+                "name": "tests",
+                "_comments": "Tests-specific code for ZLogger.",
+                "file-filters":
+                    [
+                        "Assets/Zynga/Core/ZLogger/Editor/Tests"
+                    ],
+                "dependent-packages":
+                    [
+                        "NUnit",
+                        "NSubstitute"
+                    ]
+            },
+            {
+                "name": "unitytests",
+                "_comments": "Unity tests-specific code for ZLogger.",
+                "file-filters":
+                    [
+                        "Assets/Zynga/Core/ZLogger/Unity/Editor/Tests"
+                    ],
+                "dependent-packages":
+                    [
+                        "NUnit",
+                        "NSubstitute"
+                    ],
+                "dependent-options":
+                    [
+                        "unity",
+                        "tests"
+                    ]
+            },
+            {
+                "name": "examples",
+                "_comments": "Installs documentation templates and examples code files.",
+                "file-filters":
+                    [
+                        "Assets/Zynga/Core/ZLogger/DocTemplates/"
+                    ]
+            }
+        ],
+    "metadata":
+        {
+            "documentation-merger-script":
+                [
+                    "Assets/Zynga/Core/ZLogger/DocTemplates"
+                ]
+        },
+    "build-configs":
+        {
+            "default":
+                {
+                    "min-code-coverage": 90,
+                    "required-defines":
+                        [
+                            "ASSERTIONS_ENABLED"
+                        ]
+                },
+            "dotnet_core":
+                {
+                    "platforms":
+                        [
+                            "console"
+                        ],
+                    "option-sets":
+                        [
+                            {
+                                "name": "tests",
+                                "options":
+                                    [
+                                        "tests"
+                                    ]
+                            }
+                        ]
+                },
+            "unity":
+                {
+                    "platforms":
+                        [
+                            "ios",
+                            "android",
+                            "webgl"
+                        ],
+                    "min-supported-version": "5.6",
+                    "option-sets":
+                        [
+                            {
+                                "name": "tests",
+                                "options":
+                                    [
+                                        "unitytests"
+                                    ]
+                            }
+                        ]
+                }
+        }
+}

@@ -1,0 +1,149 @@
+{
+    "name": "Zynga.Zdk.Services.Guilds",
+    "file-filters":
+        [
+            "Assets/Zynga/Zdk/Services/Guilds",
+            "-Assets/Zynga/Zdk/Services/Guilds/Gateway",
+            "-Assets/Zynga/Zdk/Services/Guilds/Zoom",
+            "-Assets/Zynga/Zdk/Services/Guilds/Editor/Tests",
+            "-Assets/Zynga/Zdk/Services/Guilds/DocTemplates/",
+            "-Assets/Zynga/Zdk/Services/Guilds/IntegrationTests"
+        ],
+    "dependent-packages":
+        [
+            "Zynga.Core.ErrorHandling",
+            "Zynga.Core.Net",
+            "Zynga.Core.JsonUtil",
+            "Zynga.Core.Util",
+            "Zynga.Core.Tasks",
+            "Zynga.Zdk.Services.Common"
+        ],
+    "options":
+        [
+            {
+                "name": "use-gateway",
+                "_comments": "Allows the client to receive Gateway notifications related to the Guilds Service.",
+                "file-filters":
+                    [
+                        "Assets/Zynga/Zdk/Services/Guilds/Gateway/",
+                        "-Assets/Zynga/Zdk/Services/Guilds/Gateway/Editor/Tests"
+                    ],
+                "dependent-packages":
+                    [
+                        "Zynga.Zdk.Services.Gateway"
+                    ]
+            },
+            {
+                "name": "use-gateway-tests",
+                "_comments": "Unit tests for gateway integration for the Guilds service.",
+                "file-filters":
+                    [
+                        "Assets/Zynga/Zdk/Services/Guilds/Gateway/Editor/Tests"
+                    ],
+                "dependent-options":
+                    [
+                        "use-gateway",
+                        "tests"
+                    ]
+            },
+            {
+                "name": "use-zoom",
+                "_comments": "Allows the client to receive Zoom notifications related to the Guilds Service.",
+                "file-filters":
+                    [
+                        "Assets/Zynga/Zdk/Services/Guilds/Zoom/",
+                        "-Assets/Zynga/Zdk/Services/Guilds/Zoom/Editor/Tests"
+                    ],
+                "dependent-packages":
+                    [
+                        "Zynga.Zdk.Services.Zoom"
+                    ]
+            },
+            {
+                "name": "use-zoom-tests",
+                "_comments": "Unit tests for zoom integration for the Guilds service.",
+                "file-filters":
+                    [
+                        "Assets/Zynga/Zdk/Services/Guilds/Zoom/Editor/Tests"
+                    ],
+                "dependent-options":
+                    [
+                        "use-zoom",
+                        "tests"
+                    ]
+            },
+            {
+                "name": "tests",
+                "_comments": "Tests-specific code for the Guilds service.",
+                "file-filters":
+                    [
+                        "Assets/Zynga/Zdk/Services/Guilds/Editor/Tests/"
+                    ],
+                "dependent-packages":
+                    [
+                        "NUnit",
+                        "NSubstitute"
+                    ]
+            },
+            {
+                "name": "examples",
+                "_comments": "Installs documentation template and example code files.",
+                "file-filters":
+                    [
+                        "Assets/Zynga/Zdk/Services/Guilds/DocTemplates/"
+                    ]
+            }
+        ],
+    "build-configs":
+        {
+            "default":
+                {
+                    "min-code-coverage": 0,
+                    "required-defines":
+                        [
+                            "ASSERTIONS_ENABLED"
+                        ]
+                },
+            "dotnet_core":
+                {
+                    "platforms":
+                        [
+                            "console"
+                        ],
+                    "option-sets":
+                        [
+                            {
+                                "name": "tests",
+                                "options":
+                                    [
+                                        "tests"
+                                    ]
+                            }
+                        ]
+                },
+            "unity":
+                {
+                    "platforms":
+                        [
+                            "ios",
+                            "android",
+                            "webgl"
+                        ],
+                    "min-supported-version": "5.6",
+                    "option-sets":
+                        [
+                            {
+                                "name": "tests",
+                                "options":
+                                    [
+                                        "tests"
+                                    ]
+                            }
+                        ]
+                }
+        },
+    "metadata":
+        {
+            "documentation-merger-script": "Assets/Zynga/Zdk/Services/Guilds/DocTemplates"
+        }
+}

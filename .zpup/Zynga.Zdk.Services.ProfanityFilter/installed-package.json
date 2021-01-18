@@ -1,0 +1,17 @@
+{
+    "package": "Zynga.Zdk.Services.ProfanityFilter",
+    "git-url": "git@github-ca.corp.zynga.com:UnityTech/Zynga.Zdk.Services.ProfanityFilter.git",
+    "installed-branch": "master",
+    "version": "branch:master",
+    "commit": "2abe16070f58fe7b658f594a7501db32c26e3521",
+    "matched-tag": "1.2.1",
+    "install-root": "",
+    "installed-options":
+        [
+            "unity",
+            "websocket",
+            "gameSpecificFiles",
+            "source",
+            "dotnet45"
+        ]
+}

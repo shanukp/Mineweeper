@@ -1,0 +1,93 @@
+{
+    "name": "Zynga.Zdk.Services.Log",
+    "file-filters":
+    [
+        "Assets/Zynga/Zdk/Services/Log",
+        "-Assets/Zynga/Zdk/Services/Log/Editor/Tests",
+        "-Assets/Zynga/Zdk/Services/Log/DocTemplates/",
+        "-Assets/Zynga/Zdk/Services/Log/IntegrationTests"
+    ],
+
+    "dependent-packages":
+    [
+        "Zynga.Core.Util",
+        "Zynga.Core.JsonUtil",
+        "Zynga.Core.ZLogger",
+        "Zynga.Core.Net",
+        "Zynga.Core.Tasks",
+        "Zynga.Core.ErrorHandling",
+        "Zynga.Core.Platform",
+        "Zynga.Zdk.Services.Common"
+    ],
+    "options":
+    [
+        {
+            "name": "examples",
+            "_comments": "Installs documentation templates and examples code files.",
+            "file-filters":
+            [
+                "Assets/Zynga/Zdk/Services/Log/DocTemplates/"
+            ]
+        },
+        {
+            "name": "tests",
+            "_comments": "Tests-specific code for the Log service.",
+            "file-filters":
+            [
+                "Assets/Zynga/Zdk/Services/Log/Editor/Tests"
+            ],
+            "dependent-packages":
+            [
+                "NUnit",
+                "NSubstitute"
+            ]
+        }
+    ],
+    "metadata":
+    {
+        "documentation-merger-script":
+        "Assets/Zynga/Zdk/Services/Log/DocTemplates"
+    },
+    "build-configs":
+    {
+        "default": 
+        {
+            "min-code-coverage": 95,
+            "required-defines": [ "ASSERTIONS_ENABLED" ],
+            "define-sets":
+            [
+                {
+                    "name": "none",
+                    "defines": [ ]
+                },
+                {
+                    "name": "disabledDeprecationWarnings",
+                    "defines": [ "DISABLE_DEVICE_INFO_DETECTOR_DEPENDENCY_OBSOLETE" ]
+                }
+            ]
+        },
+        "dotnet_core":
+        {
+            "platforms": [ "console" ],
+            "option-sets":
+            [
+                {
+                    "name": "tests",
+                    "options":  [ "tests" ]
+                }
+            ]
+        },
+        "unity":
+        {
+            "platforms": [ "ios", "android", "webgl" ],
+            "min-supported-version": "5.6",
+            "option-sets": 
+            [
+                {
+                    "name": "testsAndExamples",
+                    "options":  [ "tests", "examples" ]
+                }
+            ]
+        }
+    }
+}

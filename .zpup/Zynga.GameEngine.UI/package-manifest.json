@@ -1,0 +1,80 @@
+{
+    "name": "Zynga.GameEngine.UI",
+    "file-filters":
+        [
+            "Assets/Zynga/GameEngine/UI",
+            "Assets/Zynga/GameEngine/UI/**/*.meta",
+            "-Assets/Zynga/GameEngine/UI/Tests",
+            "-Assets/Zynga/GameEngine/UI/DocTemplates",
+            "-Docs"
+        ],
+    "dependent-packages": 
+        [
+            "Zynga.Core.ZLogger",
+            "TextMeshPro",
+            "DOTween"
+        ],
+     "options":
+        [
+            {
+                "name": "examples",
+                "_comments": "Installs documentation templates and examples code files.",
+                "file-filters":
+                    [
+                        "Assets/Zynga/GameEngine/UI/DocTemplates"
+                    ]
+            },
+            {
+                "name": "tests",
+                "_comments": "Tests-specific code and assets.",
+                "file-filters":
+                    [
+                        "Assets/Zynga/GameEngine/UI/Tests",
+                        "Assets/Zynga/GameEngine/UI/Tests/*.meta",
+                        "Assets/Zynga/GameEngine/UI/Tests/**/*.meta"
+                    ]
+            },
+            {
+                "name": "disable_DOTween_dependency",
+                "_comments": "Use this option to not install the DOTween package. Useful if already using the DLL version of DOTween.",
+                "dependent-packages":
+                    [
+                        "-DOTween"
+                    ]
+            },
+            {
+                "name": "disable_TextMeshPro_dependency",
+                "_comments": "Use this option to not install the TextMeshPro package. Useful if already using the DLL version of TextMeshPro.",
+                "dependent-packages":
+                    [
+                        "-TextMeshPro"
+                    ]
+            }
+        ],
+    "metadata":
+        {
+            "documentation-merger-script":
+                [
+                    "Assets/Zynga/GameEngine/UI/DocTemplates"
+                ]
+        },
+    "build-configs": 
+    {
+        "default": 
+        {
+            "min-code-coverage": 0,
+            "required-defines": [ "ASSERTIONS_ENABLED" ]
+        },
+        "unity": 
+        {
+            "platforms": [ "ios", "android", "webgl" ],
+            "min-supported-version": "2017.1",
+            "option-sets": 
+            [
+                {
+                    "name": "none"
+                }
+            ]
+        }
+    }
+}

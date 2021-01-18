@@ -1,0 +1,94 @@
+{
+    "name": "Zynga.Authentication.AppleGameCenter",
+    "file-filters":
+    [
+        "Assets/Zynga/Authentication/Channels/AppleGameCenter",
+        "-Assets/Zynga/Authentication/Channels/AppleGameCenter/Unity",        
+        "-Assets/Zynga/Authentication/Channels/AppleGameCenter/Editor/Tests",
+        "-Assets/Zynga/Authentication/Channels/AppleGameCenter/DocTemplates/"
+    ],
+    "dependent-packages":
+    [
+        "Zynga.Authentication",
+        "Zynga.Core.Tasks",
+        "Zynga.Core.Platform",
+        "Zynga.Core.Util",
+        "Zynga.Zdk.Services.Common"
+    ],
+    "options":
+    [
+        {
+            "name": "unity",
+            "_comments": "Unity-specific code for Zynga.Authentication.AppleGameCenter.",
+            "file-filters":
+            [
+                "Assets/Zynga/Authentication/Channels/AppleGameCenter/Unity",                
+                "Assets/Zynga/Authentication/Channels/AppleGameCenter/Unity/Plugins/ExternalAuthChannelAppleGameCenter.mm.meta"
+            ],
+            "dependent-packages":
+            [
+                "Zynga.Core.UnityUtil",
+                "Zynga.Core.JsonUtil"
+            ]
+        },
+        {
+            "name": "tests",
+            "_comments": "Tests-specific code for the ZIS AppleGameCenter authentication.",
+            "file-filters":
+            [
+                "Assets/Zynga/Authentication/Channels/AppleGameCenter/Editor/Tests"
+            ],
+            "dependent-packages":
+            [
+                "NUnit",
+                "NSubstitute"
+            ]
+        },
+        {
+            "name": "examples",
+            "_comments": "Installs documentation template and example code files.",
+            "file-filters":
+            [
+                "Assets/Zynga/Authentication/Channels/AppleGameCenter/DocTemplates/"
+            ]
+        }
+    ],
+    "metadata":
+    {
+        "documentation-merger-script":
+        [
+            "Assets/Zynga/Authentication/Channels/AppleGameCenter/DocTemplates"
+        ]
+    },
+    "build-configs":
+    {
+        "default":
+        {
+            "min-code-coverage": 0,
+            "required-defines": [ "ASSERTIONS_ENABLED" ]
+        },
+        "dotnet_core":
+        {
+            "platforms": [ "console" ],
+            "option-sets":
+            [
+                {
+                    "name": "tests",
+                    "options":  [ "tests" ]
+                }
+            ]
+        },
+        "unity":
+        {
+            "platforms": [ "ios", "android", "webgl" ],
+            "min-supported-version": "5.6",
+            "option-sets":
+            [
+                {
+                    "name": "tests",
+                    "options":  [ "tests" ]
+                }
+            ]
+        }
+    }
+}

@@ -1,0 +1,17 @@
+{
+    "package": "Zynga.Metrics.ZTrack",
+    "git-url": "git@github-ca.corp.zynga.com:UnityTech/Zynga.Metrics.ZTrack.git",
+    "installed-branch": "master",
+    "version": "branch:master",
+    "commit": "d0445e8818541f5cb6d84cc0640218f7dca068ba",
+    "matched-tag": "<None>",
+    "install-root": "",
+    "installed-options":
+        [
+            "unity",
+            "websocket",
+            "gameSpecificFiles",
+            "source",
+            "dotnet45"
+        ]
+}

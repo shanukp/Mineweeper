@@ -1,0 +1,17 @@
+{
+    "package": "Zynga.Core.UnityUtil",
+    "git-url": "git@github-ca.corp.zynga.com:UnityTech/Zynga.Core.UnityUtil.git",
+    "installed-branch": "master",
+    "version": "branch:master",
+    "commit": "6708f6bfb60b53a48bacca61d1f3bd1c197aab89",
+    "matched-tag": "2.0.4",
+    "install-root": "",
+    "installed-options":
+        [
+            "unity",
+            "websocket",
+            "gameSpecificFiles",
+            "source",
+            "dotnet45"
+        ]
+}

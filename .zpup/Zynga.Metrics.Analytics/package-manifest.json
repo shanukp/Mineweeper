@@ -1,0 +1,248 @@
+{
+    "name": "Zynga.Metrics.Analytics",
+    "file-filters":
+        [
+            "Assets/Zynga/Metrics/Analytics",
+            "Assets/Zynga/Metrics/Analytics/ZTrack",
+            "-Assets/Zynga/Metrics/Analytics/Editor/Tests",
+            "-Assets/Zynga/Metrics/Analytics/DocTemplates/",
+            "-Assets/Zynga/Metrics/Analytics/UserAcquisition/UserAcquisitionAdapter.cs",
+            "-Assets/Zynga/Metrics/Analytics/IntegrationTests",
+            "-Assets/Zynga/Metrics/Analytics/ZTrack/Editor/Tests",
+            "-Assets/Zynga/Metrics/Analytics/ZTrack/DocTemplates/",
+            "-Assets/Zynga/Metrics/Analytics/ZTrack/IntegrationTests"
+        ],
+    "dependent-packages":
+        [
+            "Zynga.Core.ZLogger",
+            "Zynga.Core.Util",
+            "Zynga.Core.Platform",
+            "Zynga.Core.ErrorHandling",
+            "Zynga.Core.Tasks",
+            "Zynga.Zdk.Services.Track",
+            "Zynga.Zdk.Services.Log",
+            "Zynga.Zdk.Services.Common",
+            "Zynga.Core.Net"
+        ],
+    "options":
+        [
+            {
+                "name": "user_acquisition",
+                "_comments": "Sets up event handler links of Analytics events to User Acquisition events.",
+                "dependent-packages":
+                    [
+                        "Zynga.Metrics.UserAcquisition"
+                    ],
+                "file-filters":
+                    [
+                        "Assets/Zynga/Metrics/Analytics/UserAcquisition/UserAcquisitionAdapter.cs"
+                    ]
+            },
+            {
+                "name": "tests",
+                "_comments": "Unit tests for the package",
+                "file-filters":
+                    [
+                        "Assets/Zynga/Metrics/Analytics/Editor/Tests",
+			"Assets/Zynga/Metrics/Analytics/ZTrack/Editor/Tests",
+                        "-Assets/Zynga/Metrics/Analytics/Editor/Tests/UserAcquisitionAdapterTest.cs",
+                        "-Assets/Zynga/Metrics/Analytics/Editor/Tests/UserAcquisitionTelemetryTest.cs",
+                        "-Assets/Zynga/Metrics/Analytics/Editor/Tests/MockUATracker.cs",
+                        "-Assets/Zynga/Metrics/Analytics/Editor/Tests/MockUserAcquisitionPackage.cs"
+                    ],
+                "dependent-packages":
+                    [
+                        "NUnit"
+                    ]
+            },
+            {
+                "name": "ztrack_tests",
+                "_comments": "Unit tests for the ztrack package",
+                "file-filters":
+                    [
+			"Assets/Zynga/Metrics/Analytics/ZTrack/Editor/Tests",
+                    ],
+                "dependent-packages":
+                    [
+                        "NUnit"
+                    ]
+            },
+            {
+                "name": "user_acquisition_tests",
+                "_comments": "Tests the files included by user_acquisition option",
+                "dependent-options":
+                    [
+                        "tests",
+                        "user_acquisition"
+                    ],
+                "file-filters":
+                    [
+                        "Assets/Zynga/Metrics/Analytics/Editor/Tests/UserAcquisitionAdapterTest.cs",
+                        "Assets/Zynga/Metrics/Analytics/Editor/Tests/UserAcquisitionTelemetryTest.cs",
+                        "Assets/Zynga/Metrics/Analytics/Editor/Tests/MockUATracker.cs",
+                        "Assets/Zynga/Metrics/Analytics/Editor/Tests/MockUserAcquisitionPackage.cs"
+                    ]
+            },
+            {
+                "name": "mono_behaviour_auto_track",
+                "_comments": "MBAT does not support unit-tests currently, make sure this option happens after too.",
+                "unity-defines":
+                    [
+                        "ZYNGA_METRICS_ANALYTICS_ENABLE_MBAT"
+                    ],
+                "order": 1
+            },
+            {
+                "name": "disable_log_dependency",
+                "_comments": "Use this option to not install the Zynga.Zdk.Service.Log adapter. Useful if a different implementation has to be provided.",
+                "dependent-packages":
+                    [
+                        "-Zynga.Zdk.Services.Log"
+                    ],
+                "unity-defines":
+                    [
+                        "ZYNGA_METRICS_ANALYTICS_DISABLE_LOG_DEPENDENCY"
+                    ]
+            },
+            {
+                "name": "disable_track_dependency",
+                "_comments": "Use this option to not install the Zynga.Zdk.Service.Track adapter. Useful if a different implementation has to be provided.",
+                "dependent-packages":
+                    [
+                        "-Zynga.Zdk.Services.Track"
+                    ],
+                "unity-defines":
+                    [
+                        "ZYNGA_METRICS_ANALYTICS_DISABLE_TRACK_DEPENDENCY"
+                    ]
+            },
+            {
+                "name": "examples",
+                "_comments": "Installs documentation templates and examples code files.",
+                "file-filters":
+                    [
+                        "Assets/Zynga/Metrics/Analytics/DocTemplates/"
+                    ],
+                "dependent-options":
+                    [
+                        "user_acquisition"
+                    ]
+            }
+        ],
+    "_comments": "Package depends on unity indirectly for platform defines, and with UnityUtil. Don't create a console version.",
+    "metadata":
+        {
+            "documentation-merger-script":
+                [
+                    "Assets/Zynga/Metrics/Analytics/DocTemplates"
+                ]
+        },
+    "build-configs":
+        {
+            "default":
+                {
+                    "min-code-coverage": 80,
+                    "define-sets":
+                        [
+                            {
+                                "name": "none",
+                                "defines":
+                                    [
+
+                                    ]
+                            },
+                            {
+                                "name": "productionAndDisableObsolete",
+                                "defines":
+                                    [
+                                        "DISABLE_ZYNGA_METRICS_ANALYTICS_PRICEINUSD_OBSOLETE",
+                                        "DISABLE_ZYNGA_METRICS_ANALYTICS_ITRACKSERVICE_OBSOLETE",
+                                        "ZYNGA_METRICS_ANALYTICS_DISABLE_OBSOLETE_TRACK_ALL",
+                                        "ZYNGA_METRICS_ANALYTICS_DISABLE_OBSOLETE_LOGSERVICEWRAPPER",
+                                        "DISABLE_ZYNGA_METRICS_ANALYTICS_ILOGERVICE_OBSOLETE",
+                                        "ZYNGA_METRICS_ANALYTICS_DISABLE_OBSOLETE_RECORDED_EVENT",
+                                        "ZYNGA_METRICS_ANALYTICS_DISABLE_OBSOLETE_SETTINGS",
+                                        "DISABLE_ZYNGA_METRICS_ANALYTICS_OBSOLETE_API",
+                                        "PRODUCTION"
+                                    ]
+                            }
+                        ],
+                    "required-defines":
+                        [
+                            "ASSERTIONS_ENABLED"
+                        ]
+                },
+            "dotnet_core":
+                {
+                    "platforms":
+                        [
+                            "console"
+                        ],
+                    "option-sets":
+                        [
+                            {
+                                "name": "none"
+                            },
+                            {
+                                "name": "unitTests",
+                                "options":
+                                    [
+                                        "tests",
+                                        "ztrack_tests"
+                                    ]
+                            }
+                        ]
+                },
+            "unity":
+                {
+                    "platforms":
+                        [
+                            "ios",
+                            "android",
+                            "webgl"
+                        ],
+                    "min-supported-version": "5.6",
+                    "option-sets":
+                        [
+                            {
+                                "name": "none"
+                            },
+                            {
+                                "name": "unitTests",
+                                "options":
+                                    [
+                                        "tests",
+                                        "examples",
+                                        "ztrack_tests"
+                                    ]
+                            },
+                            {
+                                "name": "userAcquisition",
+                                "options":
+                                    [
+                                        "user_acquisition",
+                                        "user_acquisition_tests"
+                                    ]
+                            },
+                            {
+                                "name": "monoBehaviourAutoTrack",
+                                "options":
+                                    [
+                                        "tests",
+                                        "mono_behaviour_auto_track",
+                                        "ztrack_tests"
+                                    ]
+                            },
+                            {
+                                "name": "unitTestsWithLogAndTrackDisabled",
+                                "options":
+                                    [
+                                        "tests",
+                                        "ztrack_tests",
+                                        "disable_log_dependency"
+                                    ]
+                            }
+                        ]
+                }
+        }
+}

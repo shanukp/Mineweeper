@@ -1,0 +1,121 @@
+{
+    "name": "Zynga.Zdk.Services.Track",
+    "file-filters":
+        [
+            "Assets/Zynga/Zdk/Services/Track",
+            "-Assets/Zynga/Zdk/Services/Track/DocTemplates/",
+            "-Assets/Zynga/Zdk/Services/Track/Impl/Editor/Tests",
+            "-Assets/Zynga/Zdk/Services/Track/IntegrationTests"
+        ],
+    "dependent-packages":
+        [
+            "Zynga.Zdk.Services.Common",
+            "Zynga.Core.JsonUtil",
+            "Zynga.Core.Tasks",
+            "Zynga.Core.ErrorHandling",
+            "Zynga.Core.Net",
+            "Zynga.Core.Platform",
+            "Zynga.Core.ZLogger"
+        ],
+    "options":
+        [
+            {
+                "name": "examples",
+                "_comments": "Installs documentation templates and examples code files.",
+                "file-filters":
+                    [
+                        "Assets/Zynga/Zdk/Services/Track/DocTemplates/"
+                    ],
+                "dependent-packages":
+                    [
+
+                    ]
+            },
+            {
+                "name": "min-interface",
+                "_comments": "Ensures a version of the Track service containing only a minimal interface will be installed.",
+                "file-filters":
+                    [
+                        "-Assets/Zynga/Zdk/Services/Track/Impl"
+                    ],
+                "dependent-packages":
+                    [
+
+                    ]
+            },
+            {
+                "name": "tests",
+                "_comments": "Tests-specific code for Track Services.",
+                "file-filters":
+                    [
+                        "Assets/Zynga/Zdk/Services/Track/Impl/Editor/Tests"
+                    ],
+                "dependent-packages":
+                    [
+                        "NUnit",
+                        "NSubstitute"
+                    ]
+            }
+        ],
+    "build-configs": 
+    {
+        "default": 
+        {
+            "min-code-coverage": 93,
+            "required-defines": [ "ASSERTIONS_ENABLED" ]
+        },
+        "dotnet_core": 
+
+                {
+                    "platforms":
+                        [
+                            "console"
+                        ],
+                    "option-sets":
+                        [
+                            {
+                                "name": "tests",
+                                "options":  [ "tests" ]
+                            },
+                            {
+                                "name": "minInterface",
+                                "options":
+                                    [
+                                        "min-interface"
+                                    ]
+                            }
+                        ]
+                },
+            "unity":
+                {
+                    "platforms":
+                        [
+                            "ios",
+                            "android",
+                            "webgl"
+                        ],
+                    "min-supported-version": "5.6",
+                    "option-sets":
+                        [
+                            {
+                                "name": "testsAndExamples",
+                                "options":  [ "tests", "examples" ]
+                            },
+                            {
+                                "name": "minInterface",
+                                "options":
+                                    [
+                                        "min-interface"
+                                    ]
+                            }
+                        ]
+                }
+        },
+    "metadata":
+        {
+            "documentation-merger-script":
+                [
+                    "Assets/Zynga/Zdk/Services/Track/DocTemplates"
+                ]
+        }
+}

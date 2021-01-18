@@ -1,0 +1,76 @@
+{
+    "name": "UnityTest",
+    "file-filters":
+        [
+            "Assets/UnityTest",
+            "-Assets/UnityTest/DocTemplates",
+            "Assets/UnityTestTools",
+            "Assets/UnityTestTools/IntegrationTestsFramework/TestingAssets/red.png.meta",
+            "Assets/UnityTestTools/IntegrationTestsFramework/TestingAssets/green.png.meta",
+            "Assets/UnityTestTools/Common/Editor/icons/create-darktheme.png.meta",
+            "Assets/UnityTestTools/Common/Editor/icons/create-lighttheme.png.meta",
+            "Assets/UnityTestTools/Common/Editor/icons/failed.png.meta",
+            "Assets/UnityTestTools/Common/Editor/icons/ignored.png.meta",
+            "Assets/UnityTestTools/Common/Editor/icons/inconclusive.png.meta",
+            "Assets/UnityTestTools/Common/Editor/icons/normal.png.meta",
+            "Assets/UnityTestTools/Common/Editor/icons/options-darktheme.png.meta",
+            "Assets/UnityTestTools/Common/Editor/icons/options-lighttheme.png.meta",
+            "Assets/UnityTestTools/Common/Editor/icons/passed.png.meta",
+            "Assets/UnityTestTools/Common/Editor/icons/play-darktheme.png.meta",
+            "Assets/UnityTestTools/Common/Editor/icons/play-lighttheme.png.meta",
+            "Assets/UnityTestTools/Common/Editor/icons/play_selected-darktheme.png.meta",
+            "Assets/UnityTestTools/Common/Editor/icons/play_selected-lighttheme.png.meta",
+            "Assets/UnityTestTools/Common/Editor/icons/rerun-darktheme.png.meta",
+            "Assets/UnityTestTools/Common/Editor/icons/rerun-lighttheme.png.meta",
+            "Assets/UnityTestTools/Common/Editor/icons/stopwatch.png.meta"
+        ],
+    "dependent-packages":
+        [
+            "NUnit",
+            "NSubstitute"
+        ],
+    "options":
+        [
+            {
+                "name": "examples",
+                "_comments": "Installs documentation templates and examples code files.",
+                "file-filters":
+                [
+                    "Assets/UnityTest/DocTemplates"
+                ]
+            }
+        ],
+    "build-configs":
+        {
+            "default":
+                {
+                    "min-code-coverage": 0,
+                    "required-defines":
+                        [
+                            "ASSERTIONS_ENABLED"
+                        ]
+                },
+            "unity":
+                {
+                    "platforms":
+                        [
+                            "ios",
+                            "android",
+                            "webgl"
+                        ],
+                    "option-sets":
+                        [
+                            {
+                                "name": "none"
+                            }
+                        ]
+                }
+        },
+    "metadata":
+        {
+            "documentation-merger-script":
+                [
+                    "Assets/UnityTest/DocTemplates"
+                ]
+        }
+}

@@ -1,0 +1,17 @@
+{
+    "package": "Zynga.Core.Net",
+    "git-url": "git@github-ca.corp.zynga.com:UnityTech/Zynga.Core.Net.git",
+    "installed-branch": "master",
+    "version": "branch:master",
+    "commit": "404ec0fa82742865b166934870428349850eb9ab",
+    "matched-tag": "2.1.1",
+    "install-root": "",
+    "installed-options":
+        [
+            "unity",
+            "websocket",
+            "gameSpecificFiles",
+            "source",
+            "dotnet45"
+        ]
+}

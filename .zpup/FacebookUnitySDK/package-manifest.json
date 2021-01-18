@@ -1,0 +1,118 @@
+{
+    "name": "FacebookUnitySDK",
+    "file-filters":
+    [
+        "Assets/FacebookSDK",
+        "-Assets/FacebookSDK/SDK/Resources/FacebookSettings.asset",
+        "-Assets/FacebookSDK/Examples",
+
+        "Assets/FacebookSDK/Plugins/Facebook.Unity.dll.meta",
+        "Assets/FacebookSDK/Plugins/Android/Facebook.Unity.Android.dll.meta",
+        "Assets/FacebookSDK/Plugins/Android/Facebook.Unity.IOS.dll.meta",
+        "Assets/FacebookSDK/Plugins/iOS/Facebook.Unity.Android.dll.meta",
+        "Assets/FacebookSDK/Plugins/iOS/Facebook.Unity.IOS.dll.meta",
+        "Assets/FacebookSDK/Plugins/Gameroom/Facebook.Unity.Gameroom.dll.meta",
+        "Assets/FacebookSDK/Plugins/Gameroom/FacebookNamedPipeClient.dll.meta",
+        "Assets/FacebookSDK/Plugins/Editor/Facebook.Unity.Editor.dll.meta",
+        "Assets/FacebookSDK/Plugins/Editor/Facebook.Unity.PlatformEditor.dll.meta",
+        "Assets/FacebookSDK/Plugins/Canvas/CanvasJSSDKBindings.jslib.meta",
+        "Assets/FacebookSDK/Plugins/Canvas/Facebook.Unity.Canvas.dll.meta",
+        "Assets/FacebookSDK/Plugins/Settings/Facebook.Unity.Settings.dll.meta",
+
+        "Assets/FacebookSDK/SDK/Editor/iOS/FBSDK+Internal.h.meta",
+        "Assets/FacebookSDK/SDK/Editor/iOS/FBUnityInterface.h.meta",
+        "Assets/FacebookSDK/SDK/Editor/iOS/FBUnityInterface.mm.meta",
+        "Assets/FacebookSDK/SDK/Editor/iOS/FBUnitySDKDelegate.h.meta",
+        "Assets/FacebookSDK/SDK/Editor/iOS/FBUnitySDKDelegate.m.meta",
+        "Assets/FacebookSDK/SDK/Editor/iOS/FBUnityUtility.h.meta",
+        "Assets/FacebookSDK/SDK/Editor/iOS/FBUnityUtility.mm.meta"
+    ],
+    "dependent-packages":
+    [
+        "PlayServicesResolver"
+    ],
+    "options":
+    [
+        {
+            "name": "examples",
+            "_comments": "Installs documentation templates and examples code files.",
+            "file-filters":
+            [
+                "Assets/FacebookSDK/Examples",
+                "Assets/FacebookSDK/Examples/*.meta",
+                "Assets/FacebookSDK/Examples/**/*.meta"
+            ]
+        },
+        {
+            "name": "runResolver",
+            "_comments": "Jenkins-specific, consumed by Zynga.Core.Build to run playservices resolver during build",
+            "unity-defines":
+            [
+                "RUN_PLAY_SERVICES_RESOLVER"
+            ]
+        },
+        {
+            "name": "includePlist",
+            "_comments": "Jenkins-specific, include plist for xcode 9 export step. not to be used by game teams",
+            "file-filters":
+            [
+                "options_replace.plist"
+            ]
+        },
+        {
+            "name": "includeGvh",
+            "_comments": "Jenkins-specific, include GvhProjectSettings for extracting cocoapods dependencies. not to be used by game teams",
+            "file-filters":
+            [
+                "ProjectSettings/GvhProjectSettings.xml"
+            ]
+        },
+	{
+            "name": "includeFbSettings",
+            "_comments": "Jenkins-specific, include FacebookSettings.asset. not to be used by game teams",
+            "file-filters":
+            [
+                "Assets/FacebookSDK/SDK/Resources/FacebookSettings.asset"
+            ]
+        },
+        {
+            "name": "jenkins",
+            "_comments": "Jenkins-specific, add all the steps",
+            "dependent-options":
+            [
+                "includePlist",
+		"includeGvh",
+		"includeFbSettings"
+            ]
+        }
+    ],
+    "metadata":
+    {
+        "documentation-merger-script":
+        "Assets/FacebookSDK/DocTemplates"
+    },      
+    "build-configs": 
+    {
+        "default": 
+        {
+            "min-code-coverage": 0,
+            "required-defines": [ "ASSERTIONS_ENABLED" ]
+        },
+        "unity": 
+        {
+            "platforms": [ "ios", "android", "webgl" ],
+            "min-supported-version": "5.6",
+            "option-sets": 
+            [
+                {
+                    "name": "jenkinsBuild",
+                    "options":
+                    [
+                        "jenkins"
+                    ]
+                }
+            ]
+        }
+    }
+
+}

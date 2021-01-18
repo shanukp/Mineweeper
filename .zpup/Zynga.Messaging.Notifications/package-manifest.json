@@ -1,0 +1,74 @@
+{
+    "name": "Zynga.Messaging.Notifications",
+    "file-filters":
+        [
+            "Assets/Zynga/Messaging/Notifications/",
+            "-Assets/Zynga/Messaging/Notifications/Editor/Tests",
+            "-Assets/Zynga/Messaging/Notifications/DocTemplates"
+        ],
+    "dependent-packages":
+        [
+            "Zynga.Core.Util",
+            "Zynga.Core.Tasks",
+            "Zynga.Core.ZLogger",
+            "Zynga.Core.ErrorHandling",
+            "Zynga.Zdk.Services.Messaging",
+            "Zynga.Metrics.Analytics",
+            "UTNotifications"
+        ],
+        "options":
+            [
+                {
+                    "name": "tests",
+                    "_comments": "Tests-specific code for the Notifications Package.",
+                    "file-filters":
+                        [
+                            "Assets/Zynga/Messaging/Notifications/Editor/Tests"
+                        ],
+                    "dependent-packages":
+                        [
+                            "NUnit",
+                            "NSubstitute",
+                            {
+                                "name": "Zynga.Core.Util",
+                                "use-options":
+                                    [
+                                        "test-utils"
+                                    ]
+                            }
+                        ]
+                },
+                {
+                    "name": "examples",
+                    "_comments": "Installs documentation template and example code files.",
+                    "file-filters":
+                        [
+                            "Assets/Zynga/Messaging/Notifications/DocTemplates/"
+                        ]
+                }
+            ],
+        "metadata":
+            {
+                "documentation-merger-script": "Assets/Zynga/Messaging/Notifications/DocTemplates"
+            },
+        "build-configs":
+        {
+            "default":
+            {
+                "min-code-coverage": 45,
+                "required-defines": [ "ASSERTIONS_ENABLED" ]
+            },
+            "unity":
+            {
+                "platforms": [ "ios", "android" ],
+                "min-supported-version": "5.0",
+                "option-sets":
+                [
+                    {
+                        "name": "testsAndExamples",
+                        "options":  [ "tests", "examples", "jenkins" ]
+                    }
+                ]
+            }
+        }
+}

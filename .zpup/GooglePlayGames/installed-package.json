@@ -1,0 +1,17 @@
+{
+    "package": "GooglePlayGames",
+    "git-url": "git@github-ca.corp.zynga.com:UnityTech/GooglePlayGames.git",
+    "installed-branch": "master",
+    "version": "branch:master",
+    "commit": "c24318287fd7c5cff7bd7b5f527ae59d86986c8c",
+    "matched-tag": "0.9.65+<Changes>",
+    "install-root": "",
+    "installed-options":
+        [
+            "unity",
+            "websocket",
+            "gameSpecificFiles",
+            "source",
+            "dotnet45"
+        ]
+}

@@ -1,0 +1,20 @@
+{
+    "package": "Zynga.Metrics.UserAcquisition",
+    "git-url": "git@github-ca.corp.zynga.com:UserAcquisition/Zynga.Metrics.UserAcquisition.Unity.git",
+    "installed-branch": "master",
+    "version": "branch:master",
+    "commit": "adcbb6f076cfd76912ef2727dd5d1ca0a44c3e1e",
+    "matched-tag": "2.8.8+<Changes>",
+    "install-root": "",
+    "installed-options":
+        [
+            "unity",
+            "websocket",
+            "gameSpecificFiles",
+            "source",
+            "dotnet45",
+            "adjust",
+            "user_acquisition_track",
+            "adjust_purchase"
+        ]
+}

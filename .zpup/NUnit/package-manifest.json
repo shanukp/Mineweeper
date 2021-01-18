@@ -1,0 +1,107 @@
+{
+    "name": "NUnit",
+    "file-filters":
+        [
+            "Assets/NUnit",
+            "-Assets/NUnit/Editor/Libs/nunit.framework.dll",
+            "-Assets/NUnit/Editor/Tests/"
+        ],
+    "dependent-packages":
+        [
+            "Mono.Cecil"
+        ],
+    "options":
+        [
+            {
+                "name": "unity<5.3",
+                "_comments": "Changes required for Unity 5.3 and above",
+                "file-filters":
+                    [
+                        "Assets/NUnit/Editor/Libs/nunit.framework.dll"
+                    ]
+            },
+            {
+                "name": "console",
+                "_comments": "Changes required for console builds",
+                "file-filters":
+                    [
+                        "Assets/NUnit/Editor/Libs/nunit.framework.dll"
+                    ]
+            },
+            {
+                "name": "disable",
+                "_comments": "Option to disable NUnit installation. Can be used when testing unit-tests on device, where we should not have NUnit but NUnitLiteTestRunner instead.",
+                "file-filters":
+                    [
+                        "-Assets/NUnit/"
+                    ],
+                "dependent-packages":
+                    [
+                        "-Mono.Cecil"
+                    ]
+            },
+            {
+                "name": "tests",
+                "_comments": "NUnit tests to verify NUnit is working as expected.",
+                "file-filters":
+                    [
+                        "Assets/NUnit/Editor/Tests"
+                    ]
+            }
+        ],
+    "build-configs":
+        {
+            "default":
+                {
+                    "min-code-coverage": 0,
+                    "required-defines":
+                        [
+                            "ASSERTIONS_ENABLED"
+                        ]
+                },
+            "mono":
+                {
+                    "platforms":
+                        [
+                            "console"
+                        ],
+                    "option-sets":
+                        [
+                            {
+                                "name": "tests",
+                                "options":
+                                    [
+                                        "tests"
+                                    ]
+                            }
+                        ]
+                },
+            "unity":
+                {
+                    "platforms":
+                        [
+                            "ios",
+                            "android",
+                            "webgl"
+                        ],
+                    "min-supported-version": "5.6",
+                    "option-sets":
+                        [
+                            {
+                                "name": "tests",
+                                "options":
+                                    [
+                                        "tests"
+                                    ]
+                            }
+                        ]
+                }
+        },
+    "metadata":
+        {
+            "documentation-merger-script":
+                [
+                    "Assets/NUnit/DocTemplates"
+                ]
+        }
+}

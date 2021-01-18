@@ -1,0 +1,17 @@
+{
+    "package": "UTNotifications",
+    "git-url": "git@github-ca.corp.zynga.com:UnityTech/UTNotifications.git",
+    "installed-branch": "master",
+    "version": "branch:master",
+    "commit": "2658a4e12692ff096889acde5050ced58fba67c3",
+    "matched-tag": "1.8.2+<Changes>",
+    "install-root": "",
+    "installed-options":
+        [
+            "unity",
+            "websocket",
+            "gameSpecificFiles",
+            "source",
+            "dotnet45"
+        ]
+}

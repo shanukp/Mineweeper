@@ -1,0 +1,17 @@
+{
+    "package": "Zynga.Core.WebSocket",
+    "git-url": "git@github-ca.corp.zynga.com:UnityTech/Zynga.Core.WebSocket.git",
+    "installed-branch": "master",
+    "version": "branch:master",
+    "commit": "65b37912b936576b9f235365ae4b5d4613d1f13a",
+    "matched-tag": "1.0.8",
+    "install-root": "",
+    "installed-options":
+        [
+            "unity",
+            "websocket",
+            "gameSpecificFiles",
+            "source",
+            "dotnet45"
+        ]
+}

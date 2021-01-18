@@ -1,0 +1,34 @@
+{
+    "name": "TextMeshPro",
+    "file-filters":
+    [
+        "Assets/TextMesh Pro",
+        "Assets/TextMesh Pro/**/*.meta"
+    ],
+    "metadata":
+    {
+        "documentation-merger-script":
+        [
+            "Assets/TextMesh Pro/DocTemplates"
+        ]
+    },
+    "build-configs":
+    {
+        "default":
+        {
+            "min-code-coverage": 0,
+            "required-defines": [ "ASSERTIONS_ENABLED" ]
+        },
+        "unity":
+        {
+            "platforms": [ "ios", "android", "webgl"],
+            "min-supported-version": "5.5",
+            "option-sets":
+            [
+                {
+                    "name": "none"
+                }
+            ]
+        }
+    }
+}

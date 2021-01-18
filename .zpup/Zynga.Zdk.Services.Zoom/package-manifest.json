@@ -1,0 +1,108 @@
+{
+    "name": "Zynga.Zdk.Services.Zoom",
+    "file-filters":
+    [
+        "Assets/Zynga/Zdk/Services/Zoom",
+        "-Assets/Zynga/Zdk/Services/Zoom/WebSocket",
+        "-Assets/Zynga/Zdk/Services/Zoom/Editor/Tests",
+        "-Assets/Zynga/Zdk/Services/Zoom/DocTemplates",
+        "-Assets/Zynga/Zdk/Services/Zoom/IntegrationTests"
+    ],
+    "dependent-packages":
+    [
+        "Zynga.Core.ErrorHandling",
+        "Zynga.Core.JsonUtil",
+        "Zynga.Core.Net",
+        "Zynga.Core.Platform",
+        "Zynga.Core.Tasks",
+        "Zynga.Core.Util",
+        "Zynga.Core.ZLogger",
+        "Zynga.Zdk.Services.Common"
+    ],
+    "options":
+    [
+        {
+            "name": "tests",
+            "_comments": "Tests-specific code for Services Zoom.",
+            "file-filters":
+            [
+                "Assets/Zynga/Zdk/Services/Zoom/Editor/Tests"
+            ],
+            "dependent-packages":
+            [
+                "NUnit",
+                "NSubstitute"
+            ]
+        },
+        {
+            "name": "examples",
+            "_comments": "Example-specific code for Services Zoom.",
+            "file-filters":
+            [
+                "Assets/Zynga/Zdk/Services/Zoom/DocTemplates"
+            ],
+            "dependent-packages":
+            [
+                "Zynga.Core.UnityUtil",
+                "Zynga.Zdk.Services.Common"
+            ]
+        },
+        {
+            "name": "websocket",
+            "_comments": "WebSocket based transport for use instead of TCP, for example when in WebGL",
+            "file-filters":
+            [
+                "Assets/Zynga/Zdk/Services/Zoom/WebSocket"
+            ],
+            "dependent-packages":
+            [
+                {
+                    "name": "Zynga.Core.WebSocket",
+                    "use-options":
+                    [
+                        "unity-webgl",
+                        "websocket-sharp"
+                    ]
+                }
+            ],
+            "unity-defines": [
+                "ZYNGA_ZDK_SERVICES_ZOOM_WEBSOCKET"
+            ]
+        }
+    ],
+    "build-configs":
+    {
+        "default":
+        {
+            "min-code-coverage": 50,
+            "required-defines": [ "ASSERTIONS_ENABLED" ]
+        },
+        "dotnet_core":
+        {
+            "platforms": [ "console" ],
+            "option-sets":
+            [
+                {
+                    "name": "tests",
+                    "options":  [ "tests" ]
+                }
+            ]
+        },
+        "unity":
+        {
+            "platforms": [ "ios", "android", "webgl" ],
+            "min-supported-version": "5.6",
+            "option-sets":
+            [
+                {
+                    "name": "testsAndExamples",
+                    "options":  [ "tests", "websocket", "examples" ]
+                }
+            ]
+        }
+    },
+    "metadata":
+    {
+        "documentation-merger-script": "Assets/Zynga/Zdk/Services/Zoom/DocTemplates"
+    }
+}

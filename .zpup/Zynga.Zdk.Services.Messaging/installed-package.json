@@ -1,0 +1,17 @@
+{
+    "package": "Zynga.Zdk.Services.Messaging",
+    "git-url": "git@github-ca.corp.zynga.com:UnityTech/Zynga.Zdk.Services.Messaging.git",
+    "installed-branch": "master",
+    "version": "branch:master",
+    "commit": "72ba30ab13d95c8d9439442e90fcabaa60f71daf",
+    "matched-tag": "1.0.4+<Changes>",
+    "install-root": "",
+    "installed-options":
+        [
+            "unity",
+            "websocket",
+            "gameSpecificFiles",
+            "source",
+            "dotnet45"
+        ]
+}

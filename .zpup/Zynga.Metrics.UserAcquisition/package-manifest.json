@@ -1,0 +1,197 @@
+{
+    "name": "Zynga.Metrics.UserAcquisition",
+    "file-filters":
+        [
+            "Assets/Zynga/Metrics/UserAcquisition/",
+            "-Assets/Zynga/Metrics/UserAcquisition/ExternalFacades/Implementations/TrackService.cs",            
+            "-Assets/Zynga/Metrics/UserAcquisition/DocTemplates/",
+            "-Assets/Zynga/Metrics/UserAcquisition/Adjust/",
+            "-Assets/Zynga/Metrics/UserAcquisition/Deprecated/Adjust",
+            "-Assets/Zynga/Metrics/UserAcquisition/Plugins/Android/",
+            "-Assets/Zynga/Metrics/UserAcquisition/Plugins/iOS/",
+            "-Assets/Zynga/Metrics/UserAcquisition/Editor/Tests",
+            "-Assets/Zynga/Metrics/UserAcquisition/IntegrationTests"
+        ],
+    "dependent-packages":
+        [
+            "Zynga.Core.ZLogger",
+            "Zynga.Core.ErrorHandling",
+            "Zynga.Core.Util"
+        ],
+    "options":
+        [
+            {
+                "name": "examples",
+                "_comments": "Installs documentation templates and examples code files.",
+                "file-filters":
+                    [
+                        "Assets/Zynga/Metrics/UserAcquisition/DocTemplates/"
+                    ],
+                "dependent-options":
+                    [
+                        "user_acquisition_track",
+                        "adjust"
+                    ],
+                "dependent-packages":
+                    [
+                        "Zynga.Payments.IAP"
+                    ]
+            },
+            {
+                "name": "adjust",
+                "_comments": "Needs to be specified if using Adjust.",
+                "file-filters":
+                    [
+                        "Assets/Zynga/Metrics/UserAcquisition/Editor/Adjust/",
+                        "Assets/Zynga/Metrics/UserAcquisition/Deprecated/Adjust",
+                        "-Assets/Zynga/Metrics/UserAcquisition/Editor/Adjust/mod_pbxproj.pyc",
+                        "Assets/Zynga/Metrics/UserAcquisition/Adjust/",
+                        "-Assets/Zynga/Metrics/UserAcquisition/Adjust/PurchaseSDK",
+                        "Assets/Zynga/Metrics/UserAcquisition/Plugins/Android/",
+                        "Assets/Zynga/Metrics/UserAcquisition/Plugins/iOS/",
+                        "Assets/Zynga/Metrics/UserAcquisition/Plugins/iOS/AdjustPurchaseSdk.a.meta",
+                        "Assets/Zynga/Metrics/UserAcquisition/Plugins/iOS/AdjustSdk.a.meta"
+                    ],
+                "dependent-packages":
+                    [
+                        "Zynga.Core.Platform"
+                    ]
+            },
+            {
+                "name": "adjust_purchase",
+                "_comments": "Needs to be specified if using Adjust Purchase SDK",
+                "file-filters":
+                    [
+                        "Assets/Zynga/Metrics/UserAcquisition/Adjust/PurchaseSDK"
+                    ],
+                "dependent-options":
+                    [
+                        "adjust"
+                    ],
+                "unity-defines":
+                    [
+                        "ADJUST_PURCHASE_SDK"
+                    ]
+            },
+            {
+                "name": "user_acquisition_track",
+                "_comments": "Introduces dependency on Zynga.Zdk.Services.Track for tracking the install/dau stat with zTrack.",
+                "file-filters":
+                    [
+                        "Assets/Zynga/Metrics/UserAcquisition/ExternalFacades/Implementations/TrackService.cs"
+                    ],
+                "dependent-packages":
+                    [
+                        "Zynga.Zdk.Services.Track"
+                    ]
+            },
+            {
+                "name": "tests",
+                "_comments": "Needs to be specified to include test files of the dependent packages.",
+                "file-filters":
+                    [
+                        "Assets/Zynga/Metrics/UserAcquisition/Editor/Tests"
+                    ],
+                "dependent-packages":
+                    [
+                        "NUnit"
+                    ],
+                "dependent-options":
+                    [
+                        "adjust",
+                        "user_acquisition_track"
+                    ]
+            },
+            {
+                "name": "tests_ua_no_adjust",
+                "_comments": "Needs to be specified to test the whole package excluding Adjust.",
+                "file-filters":
+                    [
+                        "Assets/Zynga/Metrics/UserAcquisition/Editor/Tests",
+                        "-Assets/Zynga/Metrics/UserAcquisition/Editor/Tests/Adjust"
+                    ],
+                "dependent-packages":
+                    [
+                        "NUnit",
+                        "Zynga.Payments.IAP",
+                        "Zynga.Core.Util"
+                    ],
+                "dependent-options":
+                    [
+                        "tests",
+                        "user_acquisition_track"
+                    ]
+            },
+            {
+                "name": "sources",
+                "_comments": "Includes the Android project source code for third party services as opposed to precompiled jars (location from project root: projects/generatedandroidproject/Adjust/).",
+                "file-filters":
+                    [
+                        "-Assets/Plugins/Android/adjust-android.jar",
+                        "projects/generatedandroidproject/Adjust/"
+                    ],
+                "dependent-options":
+                    [
+                        "adjust"
+                    ]
+            },
+            {
+                "name": "webgl",
+                "_comments": "**DEPRECATED OPTION**"
+            }
+        ],
+    "metadata":
+        {
+            "documentation-merger-script":
+                [
+                    "Assets/Zynga/Metrics/UserAcquisition/DocTemplates"
+                ]
+        },
+    "base-jenkins-jobs-config": "unitytech-unity",
+    "build-configs":
+        {
+            "default":
+                {
+                    "min-code-coverage": 10,
+                    "required-defines":
+                        [
+                            "ASSERTIONS_ENABLED"
+                        ]
+                },
+            "unity": 
+                {
+                    "platforms":
+                        [
+                            "ios",
+                            "android",
+                            "webgl"
+                        ],
+                    "min-supported-version": "5.6",
+                    "option-sets": 
+                        [
+                            {
+                                "name": "testsAndExamples",
+                                "options":
+                                    [
+                                        "tests",
+                                        "examples"
+                                    ]
+                            },
+                            {
+                                "name": "unitTestsNoAdjust",
+                                "options":
+                                    [
+                                        "tests_ua_no_adjust"
+                                    ]
+                            },
+                            {
+                                "name": "adjustPurchase",
+                                "options":
+                                    [
+                                        "adjust_purchase"
+                                    ]
+                            }
+                        ]
+                }
+        }
+}

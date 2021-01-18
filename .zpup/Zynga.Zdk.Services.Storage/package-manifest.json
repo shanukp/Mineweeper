@@ -1,0 +1,94 @@
+{
+    "name": "Zynga.Zdk.Services.Storage",
+    "file-filters":
+        [
+            "Assets/Zynga/Zdk/Services/Storage",
+            "-Assets/Zynga/Zdk/Services/Storage/Editor/Tests",
+            "-Assets/Zynga/Zdk/Services/Storage/IntegrationTests"
+        ],
+    "dependent-packages":
+        [
+            "Zynga.Core.Tasks",
+            "Zynga.Core.ErrorHandling",
+            "Zynga.Zdk.Services.Common"
+        ],
+    "options":
+        [
+            {
+                "name": "tests",
+                "_comments": "Tests-specific code for Storage.",
+                "file-filters":
+                    [
+                        "Assets/Zynga/Zdk/Services/Storage/Editor/Tests"
+                    ],
+                "dependent-packages":
+                    [
+                        "NUnit",
+                        "NSubstitute"
+                    ]
+            }
+        ],
+    "base-jenkins-jobs-config": "unitytech-unity-console-test",
+    "jenkins-jobs-config":
+        {
+            "named-parameter-overrides":
+                {
+                    "CODE_COVERAGE_PASS_PERCENTAGE": "50"
+                }
+        },
+    "build-configs":
+        {
+            "default":
+                {
+                    "min-code-coverage": 45,
+                    "required-defines":
+                        [
+                            "ASSERTIONS_ENABLED"
+                        ]
+                },
+            "dotnet_core":
+                {
+                    "platforms":
+                        [
+                            "console"
+                        ],
+                    "option-sets":
+                        [
+                            {
+                                "name": "tests",
+                                "options":
+                                    [
+                                        "tests"
+                                    ]
+                            }
+                        ]
+                },
+            "unity":
+                {
+                    "platforms":
+                        [
+                            "ios",
+                            "android",
+                            "webgl"
+                        ],
+                    "min-supported-version": "5.6",
+                    "option-sets":
+                        [
+                            {
+                                "name": "tests",
+                                "options":
+                                    [
+                                        "tests"
+                                    ]
+                            }
+                        ]
+                }
+        },
+    "metadata":
+        {
+            "documentation-merger-script":
+                [
+                    "Assets/Zynga/Zdk/Services/Storage/DocTemplates"
+                ]
+        }
+}

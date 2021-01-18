@@ -1,0 +1,83 @@
+{
+    "name": "Zynga.Content.ZLocalization",
+    
+    "file-filters":
+        [
+            "Assets/Zynga/Content/ZLocalization",
+            "Assets/Plugins/iOS/ZLocalization.mm",
+            "Assets/Plugins/iOS/ZLocalization.mm.meta",
+            "-Assets/Zynga/Content/ZLocalization/Unity",
+            "-Assets/Zynga/Content/ZLocalization/Editor/Tests"
+        ],
+    
+    "dependent-packages":
+        [
+            "Zynga.Core.Util",
+            "Zynga.Core.ZLogger"
+        ],
+    "options":
+        [
+            {
+                "name": "unity",
+                "_comments": "Unity-specific code for the Localization package.",
+                "file-filters":
+                    [
+                        "Assets/Zynga/Content/ZLocalization/Unity"
+                    ],
+                "dependent-packages":
+                    [
+                    ]
+            },
+            {
+                "name": "tests",
+                "_comments": "Tests-specific code for the Localization package.",
+                "file-filters":
+                    [
+                        "Assets/Zynga/Content/ZLocalization/Editor/Tests"
+                    ],
+                "dependent-packages":
+                    [
+                        "NUnit",
+                        "NSubstitute"
+                    ]
+            }
+        ],
+    "base-jenkins-jobs-config": "unitytech-unity-console",
+    "jenkins-jobs-config": {},
+    "build-configs": 
+    {
+        "default": 
+        {
+            "required-defines": [ "ASSERTIONS_ENABLED" ]
+        },
+        "mono": 
+        {
+            "platforms": [ "console" ],
+            "option-sets": 
+            [
+                {
+                    "name": "none"
+                },
+                {
+                    "name": "unitTests",
+                    "options":  [ "tests" ]
+                }
+            ]
+        },
+        "unity": 
+        {
+            "platforms": [ "ios", "android", "webgl" ],
+            "min-supported-version": "5.0",
+            "option-sets": 
+            [
+                {
+                    "name": "none"
+                },
+                {
+                    "name": "unitTests",
+                    "options":  [ "tests" ]
+                }
+            ]
+        }
+    }
+}

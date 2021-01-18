@@ -1,0 +1,59 @@
+{
+    "name": "Zynga.Tools.Unity.CodeCoverage",
+    "file-filters":
+        [
+            "Assets/Zynga/Tools/Unity/CodeCoverage",
+            "-Assets/Zynga/Tools/Unity/CodeCoverage/DocTemplates"
+        ],
+    "dependent-packages":
+        [
+            "Zynga.Tools.SharpCover",
+            "Palmmedia.ReportGenerator"
+        ],
+    "options":
+        [
+            {
+                "name": "examples",
+                "_comments": "Installs documentation templates and examples code files.",
+                "file-filters":
+                [
+                    "Assets/Zynga/Tools/Unity/CodeCoverage/DocTemplates"
+                ]
+            }
+        ],
+    "metadata":
+        {
+            "documentation-merger-script":
+                [
+                    "Assets/Zynga/Tools/Unity/CodeCoverage/DocTemplates",
+                    "Assets/Zynga/Tools/Unity/CodeCoverage/DocTemplates/README.md"
+                ]
+        },
+    "build-configs":
+        {
+            "default":
+                {
+                    "min-code-coverage": 0,
+                    "required-defines":
+                        [
+                            "ASSERTIONS_ENABLED"
+                        ]
+                },
+            "unity":
+                {
+                    "platforms":
+                        [
+                            "ios",
+                            "android",
+                            "webgl"
+                        ],
+                    "min-supported-version": "5.6",
+                    "option-sets":
+                        [
+                            {
+                                "name": "none"
+                            }
+                        ]
+                }
+        }
+}

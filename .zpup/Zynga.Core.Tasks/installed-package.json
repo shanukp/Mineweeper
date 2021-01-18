@@ -1,0 +1,17 @@
+{
+    "package": "Zynga.Core.Tasks",
+    "git-url": "git@github-ca.corp.zynga.com:UnityTech/Zynga.Core.Tasks.git",
+    "installed-branch": "master",
+    "version": "branch:master",
+    "commit": "81b6440edffe57dd8b8206c86a9784053fe2de21",
+    "matched-tag": "2.0.4",
+    "install-root": "",
+    "installed-options":
+        [
+            "unity",
+            "websocket",
+            "gameSpecificFiles",
+            "source",
+            "dotnet45"
+        ]
+}

@@ -1,0 +1,17 @@
+{
+    "package": "Zynga.Zdk.Services.EOS",
+    "git-url": "git@github-ca.corp.zynga.com:UnityTech/Zynga.Zdk.Services.EOS.git",
+    "installed-branch": "master",
+    "version": "branch:master",
+    "commit": "e19fe5bc8eea0ed2cfc9ae1686d2adf5c4faa87b",
+    "matched-tag": "1.1.16",
+    "install-root": "",
+    "installed-options":
+        [
+            "unity",
+            "websocket",
+            "gameSpecificFiles",
+            "source",
+            "dotnet45"
+        ]
+}

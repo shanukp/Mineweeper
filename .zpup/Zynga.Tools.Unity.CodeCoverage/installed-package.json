@@ -1,0 +1,17 @@
+{
+    "package": "Zynga.Tools.Unity.CodeCoverage",
+    "git-url": "git@github-ca.corp.zynga.com:UnityTech/Zynga.Tools.Unity.CodeCoverage.git",
+    "installed-branch": "master",
+    "version": "branch:master",
+    "commit": "a5e1dff8e81e3638e9a86415a1b90c0d5ee5a963",
+    "matched-tag": "1.0.10",
+    "install-root": "",
+    "installed-options":
+        [
+            "unity",
+            "websocket",
+            "gameSpecificFiles",
+            "source",
+            "dotnet45"
+        ]
+}

@@ -1,0 +1,17 @@
+{
+    "package": "TextMeshPro",
+    "git-url": "git@github-ca.corp.zynga.com:UnityTech/TextMeshPro.git",
+    "installed-branch": "master",
+    "version": "branch:master",
+    "commit": "2839ff83457abbb308ec9b3f1c8b6a4ee9b37938",
+    "matched-tag": "0.4+<Changes>",
+    "install-root": "",
+    "installed-options":
+        [
+            "unity",
+            "websocket",
+            "gameSpecificFiles",
+            "source",
+            "dotnet45"
+        ]
+}

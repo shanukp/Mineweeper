@@ -1,0 +1,94 @@
+{
+    "name": "Zynga.Zdk.Services.CsReport",
+    "file-filters":
+    [
+        "Assets/Zynga/Zdk/Services/CsReport",
+        "-Assets/Zynga/Zdk/Services/CsReport/Editor/Tests",
+        "-Assets/Zynga/Zdk/Services/CsReport/DocTemplates/",
+        "-Assets/Zynga/Zdk/Services/CsReport/IntegrationTests/"
+    ],
+    "dependent-packages":
+    [
+        "Zynga.Core.Util",
+        "Zynga.Core.JsonUtil",
+        "Zynga.Core.ZLogger",
+        "Zynga.Core.Net",
+        "Zynga.Core.Tasks",
+        "Zynga.Core.ErrorHandling",
+        "Zynga.Core.Platform",
+        "Zynga.Zdk.Services.Common"
+    ],
+    "options":[
+        {
+            "name":"tests",
+            "_comments":"Tests-specific code for the CsReport service.",
+            "file-filters":[
+                "Assets/Zynga/Zdk/Services/CsReport/Editor/Tests"
+            ],
+            "dependent-packages":[
+                "NUnit",
+                "NSubstitute"
+            ]
+        },
+        {
+            "name": "examples",
+            "_comments": "Installs documentation template and example code files.",
+            "file-filters":
+            [
+                "Assets/Zynga/Zdk/Services/CsReport/DocTemplates/"
+            ]
+        }
+    ],
+    "build-configs":
+    {
+        "default":
+        {
+            "min-code-coverage": 0,
+            "required-defines":
+            [
+                "ASSERTIONS_ENABLED"
+            ]
+        },
+        "dotnet_core":
+        {
+            "platforms":
+            [
+                "console"
+            ],
+            "option-sets":
+            [
+                {
+                    "name": "tests",
+                    "options":
+                    [
+                        "tests"
+                    ]
+                }
+            ]
+        },
+        "unity":
+        {
+            "platforms":
+            [
+                "ios",
+                "android",
+                "webgl"
+            ],
+            "min-supported-version": "5.6",
+            "option-sets":
+            [
+                {
+                    "name": "tests",
+                    "options":
+                    [
+                        "tests"
+                    ]
+                }
+            ]
+        }
+    },
+    "metadata":
+    {
+        "documentation-merger-script": "Assets/Zynga/Zdk/Services/CsReport/DocTemplates"
+    }
+}

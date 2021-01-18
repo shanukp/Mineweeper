@@ -1,0 +1,119 @@
+Buildfile: /Users/alexanderklyuchev/repo/Zynga.UnityTech.ExampleProject/Android/Zynga.Core.Platform/build.xml
+
+-check-env:
+ [checkenv] Android SDK Tools Revision 25.2.5
+ [checkenv] Installed at /Users/alexanderklyuchev/sdk_old
+
+-setup:
+     [echo] Project Name: Zynga.Core.Platform
+  [gettype] Project Type: Android Library
+
+-pre-clean:
+
+clean:
+[getlibpath] Library dependencies:
+[getlibpath] No Libraries
+   [subant] No sub-builds to iterate on
+
+-set-mode-check:
+
+-set-release-mode:
+
+-release-obfuscation-check:
+     [echo] proguard.config is ${proguard.config}
+
+-pre-build:
+
+-check-env:
+ [checkenv] Android SDK Tools Revision 25.2.5
+ [checkenv] Installed at /Users/alexanderklyuchev/sdk_old
+
+-setup:
+     [echo] Project Name: Zynga.Core.Platform
+  [gettype] Project Type: Android Library
+
+-build-setup:
+[getbuildtools] Using latest Build Tools: 27.0.3
+     [echo] Resolving Build Target for Zynga.Core.Platform...
+[gettarget] Project Target:   Android 8.0.0
+[gettarget] API level:        26
+     [echo] ----------
+     [echo] Creating output directories if needed...
+    [mkdir] Created dir: /Users/alexanderklyuchev/repo/Zynga.UnityTech.ExampleProject/Android/Zynga.Core.Platform/bin
+    [mkdir] Created dir: /Users/alexanderklyuchev/repo/Zynga.UnityTech.ExampleProject/Android/Zynga.Core.Platform/bin/res
+    [mkdir] Created dir: /Users/alexanderklyuchev/repo/Zynga.UnityTech.ExampleProject/Android/Zynga.Core.Platform/bin/rsObj
+    [mkdir] Created dir: /Users/alexanderklyuchev/repo/Zynga.UnityTech.ExampleProject/Android/Zynga.Core.Platform/bin/rsLibs
+    [mkdir] Created dir: /Users/alexanderklyuchev/repo/Zynga.UnityTech.ExampleProject/Android/Zynga.Core.Platform/gen
+    [mkdir] Created dir: /Users/alexanderklyuchev/repo/Zynga.UnityTech.ExampleProject/Android/Zynga.Core.Platform/bin/classes
+    [mkdir] Created dir: /Users/alexanderklyuchev/repo/Zynga.UnityTech.ExampleProject/Android/Zynga.Core.Platform/bin/dexedLibs
+     [echo] ----------
+     [echo] Resolving Dependencies for Zynga.Core.Platform...
+[dependency] Ordered libraries:
+[dependency] 
+[dependency] ------------------
+     [echo] ----------
+     [echo] Building Libraries with 'release'...
+   [subant] No sub-builds to iterate on
+
+-code-gen:
+[mergemanifest] Merging AndroidManifest files into one.
+[mergemanifest] Manifest merger disabled. Using project manifest only.
+     [echo] Handling aidl files...
+     [aidl] No AIDL files to compile.
+     [echo] ----------
+     [echo] Handling RenderScript files...
+     [echo] ----------
+     [echo] Handling Resources...
+     [aapt] Generating resource IDs...
+     [echo] ----------
+     [echo] Handling BuildConfig class...
+[buildconfig] Generating BuildConfig class.
+
+-pre-compile:
+
+-compile:
+    [javac] Compiling 3 source files to /Users/alexanderklyuchev/repo/Zynga.UnityTech.ExampleProject/Android/Zynga.Core.Platform/bin/classes
+    [javac] warning: [options] source value 1.5 is obsolete and will be removed in a future release
+    [javac] warning: [options] target value 1.5 is obsolete and will be removed in a future release
+    [javac] warning: [options] To suppress warnings about obsolete options, use -Xlint:-options.
+    [javac] 3 warnings
+     [echo] Creating library output jar file...
+      [jar] Building jar: /Users/alexanderklyuchev/repo/Zynga.UnityTech.ExampleProject/Android/Zynga.Core.Platform/bin/classes.jar
+
+-post-compile:
+
+-obfuscate:
+
+-dex:
+     [echo] Library project: do not convert bytecode...
+
+-crunch:
+   [crunch] Crunching PNG Files in source dir: /Users/alexanderklyuchev/repo/Zynga.UnityTech.ExampleProject/Android/Zynga.Core.Platform/res
+   [crunch] To destination dir: /Users/alexanderklyuchev/repo/Zynga.UnityTech.ExampleProject/Android/Zynga.Core.Platform/bin/res
+   [crunch] Crunched 0 PNG files to update cache
+
+-package-resources:
+     [echo] Library project: do not package resources...
+
+-package:
+     [echo] Library project: do not package apk...
+
+-post-package:
+
+-release-prompt-for-password:
+
+-release-nosign:
+     [echo] 
+[propertyfile] Creating new property file: /Users/alexanderklyuchev/repo/Zynga.UnityTech.ExampleProject/Android/Zynga.Core.Platform/bin/build.prop
+[propertyfile] Updating property file: /Users/alexanderklyuchev/repo/Zynga.UnityTech.ExampleProject/Android/Zynga.Core.Platform/bin/build.prop
+[propertyfile] Updating property file: /Users/alexanderklyuchev/repo/Zynga.UnityTech.ExampleProject/Android/Zynga.Core.Platform/bin/build.prop
+[propertyfile] Updating property file: /Users/alexanderklyuchev/repo/Zynga.UnityTech.ExampleProject/Android/Zynga.Core.Platform/bin/build.prop
+
+-release-sign:
+
+-post-build:
+
+release:
+
+BUILD SUCCESSFUL
+Total time: 1 second

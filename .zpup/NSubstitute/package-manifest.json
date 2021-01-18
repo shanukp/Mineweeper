@@ -1,0 +1,92 @@
+{
+    "name": "NSubstitute",
+    "file-filters":
+        [
+            "Assets/NSubstitute/Editor/Binaries",
+            "Assets/NSubstitute/README.md"
+        ],
+    "dependent-packages":
+        [
+
+        ],
+    "options":
+        [
+            {
+                "name": "disable",
+                "_comments": "Option to disable NSubstitute installation.",
+                "file-filters":
+                    [
+                        "-Assets/NSubstitute"
+                    ]
+            },
+            {
+                "name": "sources",
+                "_comments": "Option to install the sources instead of the Editor dll version.",
+                "file-filters":
+                    [
+                        "-Assets/NSubstitute/Editor/Binaries",
+                        "Assets/NSubstitute/Editor/Sources"
+                    ]
+            },
+            {
+                "name": "static-proxies",
+                "_comments": "Option to have static proxies instead of dynamic proxies. Need to have the (modified) sources for this to work.",
+                "dependent-options":
+                    [
+                        "sources"
+                    ],
+                "unity-defines":
+                    [
+                        "+NSUBSTITUTE_ENABLE_CONCURRENT_CLASSES",
+                        "+NSUBSTITUTE_ENABLE_ZYNGA_PROXY"
+                    ]
+            }
+        ],
+    "build-configs":
+        {
+            "default":
+                {
+                    "min-code-coverage": 0,
+                    "required-defines":
+                        [
+                            "ASSERTIONS_ENABLED"
+                        ]
+                },
+            "mono":
+                {
+                    "platforms":
+                        [
+                            "console"
+                        ],
+                    "option-sets":
+                        [
+                            {
+                                "name": "none"
+                            }
+                        ]
+                },
+            "unity":
+                {
+                    "platforms":
+                        [
+                            "ios",
+                            "android",
+                            "webgl"
+                        ],
+                    "min-supported-version": "5.6",
+                    "option-sets":
+                        [
+                            {
+                                "name": "none"
+                            }
+                        ]
+                }
+        },
+    "metadata":
+        {
+            "documentation-merger-script":
+                [
+                    "Assets/NSubstitute/DocTemplates"
+                ]
+        }
+}
